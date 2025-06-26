@@ -1,0 +1,3423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=settings"
+    />
+    <style>
+      * {
+        font-family: "Nunito", sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Nunito", sans-serif;
+      }
+
+      body {
+        background: radial-gradient(
+          closest-side at center,
+          #573ecd 0%,
+          #433196 70%
+        );
+        display: flex;
+      }
+
+      main {
+        margin: calc(100vh * 20 / 900) calc(100vw * 48 / 1440);
+        padding: 0;
+        width: calc(100% - (100vw * 48 * 2 / 1440));
+        height: calc(100% - (100vh * 48 * 2 / 900));
+        display: flex;
+        justify-content: center;
+      }
+
+      .telaInicial {
+        height: calc(100% - (100vh * (84.41 - 5) * 2 / 900));
+        margin: calc(100vh * 100 / 900) calc(100vw * 373 / 1440);
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #2a2585;
+        border: calc(100vh * 5 / 900) solid #573ecd;
+        border-radius: calc(100vh * 32 / 900);
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: calc(100vh * 48 / 900);
+        text-align: center;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: white;
+      }
+
+      .subTituloParagrafo {
+        display: flex;
+        flex-direction: column;
+        margin: 0 calc(100vw * 40 / 1440);
+        padding: 0;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 0;
+        font-size: calc(100vh * 48 / 900);
+        text-align: center;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: white;
+      }
+
+      div p {
+        margin: 0;
+        padding: calc(100vh * 16 / 900) calc(100vw * 18.5 / 1440) 0;
+        font-size: calc(100vh * 32 / 900);
+        text-align: center;
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: white;
+      }
+
+      /* Botão */
+
+      section {
+        height: calc(100vh * 94.18 / 900);
+        width: fit-content;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .frente {
+        background-color: #ff5e01;
+        height: calc(
+          (100vh * 94.18 / 900) - (100vh * 5.65 * 2 / 900) -
+            (100vh * 20 * 2 / 900)
+        );
+        border-radius: calc(((100vh * 94.18 / 900) - (100vh * 5.65 / 900)) / 2);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc(100vh * 20 / 900) calc(100vw * 37 / 1440);
+      }
+
+      .frente:hover + .tras {
+        box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.7);
+      }
+
+      .frente:active + .tras {
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2),
+          0 0 1.5px 6px rgba(255, 255, 255, 0.7);
+      }
+
+      .frente p {
+        padding: 0;
+        margin: 0;
+        font-size: calc(100vh * 36 / 900);
+        color: white;
+        font-weight: 900;
+        text-shadow: 0 calc(100vh * 3.77 / 900) rgba(0, 0, 0, 0.15);
+        line-height: calc(100vh * 52.7 / 900);
+      }
+
+      .tras p {
+        padding: 0;
+        margin: 0;
+        font-size: calc(100vh * 36 / 900);
+        color: white;
+        font-weight: 900;
+        text-shadow: 0 calc(100vh * 3.77 / 900) rgba(0, 0, 0, 0.15);
+        line-height: calc(100vh * 52.7 / 900);
+      }
+
+      .tras {
+        background: linear-gradient(
+          to bottom,
+          rgba(253, 126, 52, 1) 0%,
+          rgba(218, 105, 39, 1) 49%,
+          rgba(158, 60, 4, 1) 100%
+        );
+        height: calc(
+          (100vh * 94.18 / 900) - (100vh * 5.65 * 2 / 900) -
+            (100vh * 20 * 2 / 900)
+        );
+        border-radius: calc(((100vh * 94.18 / 900)) / 2);
+        border: none;
+        position: absolute;
+        z-index: 1;
+        box-shadow: 0 calc(100vh * 4.35 / 900) calc(100vh * 6.77 / 900)
+          rgba(0, 0, 0, 0.25);
+        padding: calc(100vh * (20 + 5.65) / 900)
+          calc(100vw * (37 + 5.65) / 1440);
+      }
+
+      /* Fim do Botão */
+
+      /* input + e - */
+
+      article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      article section {
+        transform: scale(calc(64 / 104.52), calc(64 / 94.16));
+      }
+
+      .tamanhoFonteDiminuirEAumentar {
+        font-size: 48px !important;
+      }
+
+      .numerico {
+        font-size: calc(100vh * 32 / 900);
+        font-weight: 900;
+        line-height: calc(100vh * 52.7 / 900);
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        height: calc(100vh * 61 / 900);
+        width: calc(100vh * 100 / 900);
+        border-radius: calc(100vh * 30.5 / 900);
+        border: none;
+        outline: none;
+        border: calc(100vh * 2 / 900) solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 calc(100vh * 4 / 900) calc(100vh * 4 / 900)
+          rgba(0, 0, 0, 0.25);
+      }
+
+      /* Fim do input + e - */
+
+      /*Inicio do header da tela de inicio*/
+
+      header {
+        position: absolute;
+        top: calc(100vh * 48 / 900);
+        left: calc(100vw * 48 / 1440);
+        padding: 0;
+        margin: 0;
+        width: calc(100vw - (100vw * 48 * 2 / 1440));
+        height: calc(100vh * 64 / 900);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100vh * 64 / 900);
+        height: calc(100vh * 64 / 900);
+        border-radius: calc(100vh * 32 / 900);
+        background-color: #573ecd;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .bi-arrow-left {
+        color: white;
+        font-size: calc(100vh * 32 / 900);
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        stroke: currentColor;
+        stroke-width: 0.8;
+        fill: white;
+        width: calc(100vh * 32 / 900);
+        height: calc(100vh * 32 / 900);
+        cursor: pointer;
+      }
+
+      #gear {
+        color: white;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        stroke: currentColor;
+        stroke-width: 0.8;
+        fill: white;
+        width: calc(100vh * 32 / 900);
+        height: calc(100vh * 32 / 900);
+        cursor: pointer;
+      }
+
+      nav {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav div {
+        width: calc(100vh * 445 / 900);
+        height: calc(100vh * 16 / 900);
+        background-color: #573ecd;
+        border-radius: calc(100vh * 8 / 900);
+        margin: 0;
+        padding: 0;
+      }
+
+      nav div p {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #ff5e01;
+        border-radius: calc(100vh * 8 / 900);
+      }
+
+      .um {
+        width: 20%;
+      }
+
+      .dois {
+        width: 40%;
+      }
+
+      .tres {
+        width: 60%;
+      }
+
+      .quatro {
+        width: 80%;
+      }
+
+      .cinco {
+        width: 100%;
+      }
+
+      nav p {
+        font-weight: bold;
+        font-size: calc(100vh * 24 / 900);
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: rgba(255, 255, 255, 0.64);
+        margin: 0;
+        padding: 0;
+        margin-top: calc(100vh * 8.2 / 900);
+      }
+
+      /*Fim do header da tela de inicio*/
+
+      /* Input de texto */
+
+      .texto {
+        font-size: calc(100vh * 32 / 900);
+        font-weight: 900;
+        line-height: calc(100vh * 52.7 / 900);
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        height: calc(100vh * 61 / 900);
+        width: calc(100vh * 373 / 900);
+        border-radius: calc(100vh * 30.5 / 900);
+        border: none;
+        outline: none;
+        border: calc(100vh * 2 / 900) solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 calc(100vh * 4 / 900) calc(100vh * 4 / 900)
+          rgba(0, 0, 0, 0.25);
+      }
+
+      /* Fim do Input de texto */
+
+      /* Inicio do grid*/
+
+      .grid {
+        display: grid;
+        gap: 0;
+        margin: 0 calc(100vh * 40 / 900);
+      }
+
+      /* Até 3 itens: 1 coluna */
+      .grid:has(:nth-child(4)) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        row-gap: calc(100vh * 16 / 900);
+        column-gap: calc(100vw * 32 / 1440);
+      }
+
+      /* Menos de 4 itens = 1 coluna */
+      .grid:not(:has(:nth-child(4))) {
+        grid-template-columns: 1fr;
+        row-gap: calc(100vh * 16 / 900);
+        column-gap: calc(100vw * 32 / 1440);
+      }
+
+      span p {
+        padding: 0;
+        margin: 0 0 calc(100vh * 8 / 900) 0;
+        font-size: calc(100vh * 24 / 900);
+        color: rgba(255, 255, 255, 0.64);
+        font-weight: bold;
+        letter-spacing: -2%;
+        line-height: 120%;
+        text-align: left;
+      }
+
+      /*Fim do grid*/
+
+      /* /10 perguntas */
+
+      #quantidadePerguntas {
+        margin: 0;
+        padding: 0;
+        font-size: calc(100vh * 36 / 900);
+        line-height: 120%;
+        letter-spacing: -2%;
+        font-weight: 900;
+        width: calc(100vw * 929 / 1440);
+        color: rgba(255, 255, 255, 0.64);
+      }
+
+      #pergunta {
+        margin: 0;
+        padding: 0 calc(100vw * 40 / 1440);
+        font-size: calc(100vh * 40 / 900);
+        line-height: 120%;
+        letter-spacing: -2%;
+        font-weight: 600;
+        color: white;
+        text-align: left;
+      }
+
+      footer {
+        margin: calc(100vh * 40 / 900) calc(100vw * 40 / 1440);
+        padding: 0;
+        display: inline;
+        width: calc(100% - (100vw * 40 * 2 / 1440));
+      }
+
+      footer h1,
+      footer p {
+        margin: 0;
+        padding: 0;
+        display: inline;
+      }
+
+      .cardPergunta {
+        height: fit-content;
+        width: calc(100% - (100vw * (167 - 5) * 2 / 1440));
+        margin: calc(100vh * 100 / 900) calc(100vw * 167 / 1440)
+          calc(100vh * 79 / 900);
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #2a2585;
+        border: 5px solid #573ecd;
+        border-radius: calc(100vh * 32 / 900);
+        align-items: center;
+        text-align: left !important;
+      }
+
+      #pergunta {
+        width: calc(100% - calc(100vw * 40 * 2 / 1440));
+      }
+
+      /* Inicio opções */
+
+      aside {
+        margin: auto calc((100vw * 34 / 1440)) calc((100vh * 40 / 900));
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      aside section {
+        width: calc(100% - (100vw * 34.5 * 2 / 1440));
+        position: relative;
+        height: calc(100vh * 72 / 900);
+        margin-top: calc(100vh * 20 / 900);
+      }
+
+      /*Claro*/
+
+      .opcaoFrenteClaro {
+        position: absolute;
+        top: calc(100vh * 5.65 / 900);
+        left: calc(100vh * 5.65 / 900);
+        width: calc(100% - (100vw * 37 * 2 / 1440) - (100vh * 5.65 * 2 / 900));
+        height: calc(100% - (100vh * 24 * 2 / 900) - (100vh * 5.65 * 2 / 900));
+        font-size: calc(100vh * 24 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 24 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .opcaoTrasClaro {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - (100vw * 37 * 2 / 1440));
+        height: calc(100% - (100vh * 24 * 2 / 900));
+        font-size: calc(100vh * 24 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 24 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .opcaoFrenteClaro {
+        background-color: #ff5e01;
+        color: white;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      .opcaoFrenteClaro:hover + .opcaoTrasClaro {
+        box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoFrenteClaro:active + .opcaoTrasClaro {
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2),
+          0 0 1.5px 6px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoTrasClaro {
+        color: white;
+        background: linear-gradient(
+          to bottom,
+          rgba(253, 126, 52, 1) 0%,
+          rgba(218, 105, 39, 1) 49%,
+          rgba(158, 60, 4, 1) 100%
+        );
+        box-shadow: 0 calc(100vh * 4.35 / 900) calc(100vh * 6.77 / 900)
+          rgba(0, 0, 0, 0.25);
+      }
+
+      /*Escuro*/
+
+      .opcaoFrenteEscuro {
+        position: absolute;
+        top: calc(100vh * 5.65 / 900);
+        left: calc(100vh * 5.65 / 900);
+        width: calc(100% - (100vw * 37 * 2 / 1440) - (100vh * 5.65 * 2 / 900));
+        height: calc(100% - (100vh * 24 * 2 / 900) - (100vh * 5.65 * 2 / 900));
+        font-size: calc(100vh * 24 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 24 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .opcaoTrasEscuro {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - (100vw * 37 * 2 / 1440));
+        height: calc(100% - (100vh * 24 * 2 / 900));
+        font-size: calc(100vh * 24 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 24 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .opcaoFrenteEscuro {
+        background-color: #af4000;
+        color: white;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      .opcaoFrenteEscuro:hover + .opcaoTrasEscuro {
+        box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoFrenteEscuro:active + .opcaoTrasEscuro {
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2),
+          0 0 1.5px 6px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoTrasEscuro {
+        color: white;
+        background: linear-gradient(
+          to bottom,
+          rgba(189, 102, 51, 1) 0%,
+          rgba(160, 83, 38, 1) 49%,
+          rgba(110, 42, 3, 1) 100%
+        );
+        box-shadow: 0 calc(100vh * 4.35 / 900) calc(100vh * 6.77 / 900)
+          rgba(0, 0, 0, 0.25);
+      }
+
+      /* Fim opções */
+
+      /* Botão config*/
+
+      #config {
+        height: calc((100vh * 304 / 900) - 1px);
+        width: calc((100vw * 382 / 1440) - 1px);
+        background-color: #573ecd;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: calc(100vh * 24 / 900);
+        box-shadow: 0 0 32px 4px rgba(0, 0, 0, 0.25);
+        position: absolute;
+        top: calc(100vh * 48 / 900);
+        left: calc(100vw * 130 / 1440);
+        z-index: 10;
+      }
+
+      .aparecerConfiguracao {
+        display: none;
+      }
+
+      #config h1 {
+        margin: 0;
+        padding: calc(100vh * 32 / 900) calc(100vw * 32 / 1440);
+        font-size: calc(100vh * 36 / 900);
+        text-align: left;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: white;
+      }
+
+      /* Inicio opções */
+
+      .menuConfig {
+        margin: auto calc((100vw * 31 / 1440)) calc((100vh * 32 / 900));
+        padding: 0;
+        width: calc(100% - (100vw * 31 * 2 / 1440));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .opcoesConfig {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        height: calc((100vh * 47 / 900) + (100vh * 5.65 * 2 / 900));
+        width: calc(100vw * 320 / 1440);
+      }
+
+      .opcaoConfigFrente {
+        position: absolute;
+        top: calc(100vh * 5.65 / 900);
+        left: calc(100vh * 5.65 / 900);
+        width: calc(100% - (100vw * 37 * 2 / 1440) - (100vh * 5.65 * 2 / 900));
+        height: calc(100% - (100vh * 12 * 2 / 900) - (100vh * 5.65 * 2 / 900));
+        font-size: calc(100vh * 17.8 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 10 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        line-height: calc(100vh * 26.1 / 900);
+      }
+
+      .opcaoConfigTras {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - (100vw * 37 * 2 / 1440));
+        height: calc(100% - (100vh * 12 * 2 / 900));
+        font-size: calc(100vh * 24 / 900);
+        font-weight: 900;
+        padding: calc(100vh * 10 / 900) calc(100vw * 37 / 1440);
+        border-radius: calc((((100vh * 72 / 900) - (100vh * 5.65 / 900))) / 2);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .opcaoConfigFrente {
+        background-color: #ff5e01;
+        color: white;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      .opcaoConfigFrente:hover + .opcaoConfigTras {
+        box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoConfigFrente:active + .opcaoConfigTras {
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2),
+          0 0 1.5px 6px rgba(255, 255, 255, 0.7);
+      }
+
+      .opcaoConfigTras {
+        color: white;
+        background: linear-gradient(
+          to bottom,
+          rgba(253, 126, 52, 1) 0%,
+          rgba(218, 105, 39, 1) 49%,
+          rgba(158, 60, 4, 1) 100%
+        );
+        box-shadow: 0 calc(100vh * 4.35 / 900) calc(100vh * 6.77 / 900)
+          rgba(0, 0, 0, 0.25);
+      }
+
+      /* Confirmação*/
+
+      h6 {
+        margin: 0;
+        padding: 0;
+        font-size: calc(100vh * 24 / 900);
+        text-align: center;
+        font-weight: 900;
+        line-height: calc(100vh * 52.7 / 900);
+        color: white;
+        cursor: pointer;
+        margin: calc(100vh * 10 / 900) calc(100vw * 10 / 1440);
+        border-radius: calc(100vh * 52.7 / 2 / 900);
+      }
+
+      h6:hover {
+        opacity: 0.7;
+      }
+
+      h6:active {
+        box-shadow: 0 0 4px 1px rgba(87, 62, 205, 1);
+        background-color: rgba(87, 62, 205, 0.2);
+      }
+
+      .subTituloParagrafoFinal {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        align-items: flex-start;
+      }
+
+      h5 {
+        margin: 0;
+        padding: calc(100vh * 10 / 900) calc(100vw * 32 / 1440);
+        font-size: calc(100vh * 24 / 900);
+        text-align: left;
+        font-weight: 900;
+        color: rgba(0, 0, 0, 0.32);
+        margin: calc(100vh * 10 / 900) calc(100vw * 10 / 1440);
+        border-radius: calc(100vh * 52.7 / 2 / 900);
+        background-color: #e5e5e5;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        width: calc(100% - (100vw * 40 * 2 / 1440));
+      }
+
+      .alinharFinal {
+        margin: 0 calc(100vw * 40 / 1440) calc(100vh * 48 / 900);
+        padding: 0;
+        width: calc(100% - calc(100vw * 40 / 1440));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: baseline;
+      }
+
+      .alinharFinal p {
+        margin: calc(100vh * 48 / 900) 0 0 0;
+        padding: 0;
+      }
+
+      .alinharFinal h1 {
+        margin: calc(100vh * 40 / 900) 0 0 0;
+        padding: 0;
+      }
+
+      .ultimaTela {
+        margin: calc(100vh * 143 / 900) calc(100vw * 215.5 / 1440) auto;
+        width: calc(100% - (100vw * 215.5 * 2 / 1440));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #2a2585;
+        border: calc(100vh * 5 / 900) solid #573ecd;
+        border-radius: calc(100vh * 32 / 900);
+        align-items: center;
+        text-align: left !important;
+      }
+
+      .confCancela {
+        margin-bottom: calc(100vh * 40 / 900);
+      }
+
+      #trofeu {
+        width: calc((100vw * 86 / 1440));
+        margin: 0;
+        margin-top: calc((100vh * 97 / 900));
+        padding: 0;
+      }
+
+      .podio {
+        margin: 0 0 calc(100vh * 40 / 900);
+        padding: 0;
+        width: calc(
+          (100vw * 95 * 3 / 1440) + (100vw * 32 * 2 / 1440) +
+            (100vw * 17.4 * 2 / 1440)
+        );
+        height: calc((100vh * 275 / 900));
+        position: relative;
+      }
+
+      .premiacao {
+        margin: calc(100vh * 31 / 900) calc(100vw * 167.5 / 1440);
+        width: calc(100vw * 1009 / 1440);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: #2a2585;
+        border: calc(100vh * 5 / 900) solid #573ecd;
+        border-radius: calc(100vh * 32 / 900);
+        align-items: center;
+        text-align: left !important;
+      }
+
+      h4 {
+        margin: calc(100vh * 16 / 900) 0 0 0;
+        padding: 0;
+        font-size: calc(100vh * 40 / 900);
+        text-align: left;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -2%;
+        color: white;
+      }
+
+      #confirmacaoResposta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        width: calc(100% - (100vw * 30 * 2 / 1440));
+        height: calc(100% - (100vh * 30 * 2 / 900));
+        justify-content: center;
+        z-index: 10;
+        backdrop-filter: blur(4px);
+      }
+    </style>
+    <title>QualiQuiz</title>
+  </head>
+  <body>
+    <script>
+      //Perguntas
+
+      const perguntas = [
+        {
+          pergunta: "A abordagem centrada no usuário considera qualidade como:",
+          opcao1: "A) A SOMA DAS CARACTERÍSTICAS TÉCNICAS DO PRODUTO",
+          opcao2: "B) O CUMPRIMENTO DAS NORMAS DE FABRICAÇÃO",
+          opcao3:
+            "C) A CAPACIDADE DE ATENDER ÀS NECESSIDADES E CONVENIÊNCIAS DO CONSUMIDOR",
+          opcao4: "D) A REPUTAÇÃO DA MARCA NO MERCADO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) A CAPACIDADE DE ATENDER ÀS NECESSIDADES E CONVENIÊNCIAS DO CONSUMIDOR",
+        },
+        {
+          pergunta:
+            "Qual dimensão da qualidade está relacionada à vida útil de um produto antes da necessidade de substituição?",
+          opcao1: "A) DURABILIDADE",
+          opcao2: "B) CONFORMIDADE",
+          opcao3: "C) ESTÉTICA",
+          opcao4: "D) DESEMPENHO",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) DURABILIDADE",
+        },
+        {
+          pergunta: "Na dimensão conformidade, a qualidade é medida por:",
+          opcao1: "A) A CAPACIDADE DE IMPRESSIONAR O CONSUMIDOR VISUALMENTE",
+          opcao2: "B) A ADEQUAÇÃO ÀS ESPECIFICAÇÕES E PADRÕES TÉCNICOS",
+          opcao3: "C) A DURABILIDADE DO PRODUTO EM USO INTENSO",
+          opcao4: "D) A VELOCIDADE DE PRODUÇÃO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) A ADEQUAÇÃO ÀS ESPECIFICAÇÕES E PADRÕES TÉCNICOS",
+        },
+        {
+          pergunta: "O que a dimensão atendimento ao cliente busca assegurar?",
+          opcao1: "A) ALTA CAPACIDADE DE PRODUÇÃO EM MASSA",
+          opcao2:
+            "B) ENTREGA RÁPIDA COM CORTESIA E SUPORTE TÉCNICO APÓS A VENDA",
+          opcao3: "C) DESIGN ESTÉTICO E MODERNO",
+          opcao4: "D) CONFORMIDADE COM NORMAS ISO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) ENTREGA RÁPIDA COM CORTESIA E SUPORTE TÉCNICO APÓS A VENDA",
+        },
+        {
+          pergunta: "A dimensão características/especificações refere-se a:",
+          opcao1: "A) FUNÇÕES BÁSICAS ESPERADAS DE QUALQUER PRODUTO",
+          opcao2: "B) ASPECTOS DE DURABILIDADE E MANUTENÇÃO",
+          opcao3: "C) FUNCIONALIDADES COMPLEMENTARES QUE DIFERENCIAM O PRODUTO",
+          opcao4: "D) DESIGN E APARÊNCIA EXTERNA DO PRODUTO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) FUNCIONALIDADES COMPLEMENTARES QUE DIFERENCIAM O PRODUTO",
+        },
+        {
+          pergunta:
+            "Qual dimensão da qualidade é altamente subjetiva e depende das preferências pessoais?",
+          opcao1: "A) CONFORMIDADE",
+          opcao2: "B) DESEMPENHO",
+          opcao3: "C) ESTÉTICA",
+          opcao4: "D) CONFIABILIDADE",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ESTÉTICA",
+        },
+        {
+          pergunta: "A dimensão desempenho está associada a:",
+          opcao1: "A) O CUMPRIMENTO DE NORMAS TÉCNICAS",
+          opcao2: "B) AS FUNÇÕES OPERACIONAIS BÁSICAS DE UM PRODUTO",
+          opcao3: "C) A DURABILIDADE E ROBUSTEZ DE USO",
+          opcao4: "D) A PERCEPÇÃO ESTÉTICA DO CONSUMIDOR",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) AS FUNÇÕES OPERACIONAIS BÁSICAS DE UM PRODUTO",
+        },
+        {
+          pergunta: "O que significa a sigla PDCA?",
+          opcao1: "A) PLAN, DO, CONTROL, ASSESS",
+          opcao2: "B) PREPARE, DEVELOP, CHECK, ANALYZE",
+          opcao3: "C) PLAN, DO, CHECK, ACT",
+          opcao4: "D) PREDICT, DEFINE, CREATE, ADJUST",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) PLAN, DO, CHECK, ACT",
+        },
+        {
+          pergunta: "Qual é o foco principal do ciclo PDCA?",
+          opcao1: "A) REDUÇÃO DE CUSTOS",
+          opcao2: "B) AUMENTO DA PRODUÇÃO",
+          opcao3: "C) MELHORIA CONTÍNUA",
+          opcao4: "D) REORGANIZAÇÃO DA EMPRESA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) MELHORIA CONTÍNUA",
+        },
+        {
+          pergunta:
+            "Qual é a primeira ação recomendada ao detectar um problema, segundo o PDCA?",
+          opcao1: "A) COLOCAR EM PRÁTICA A SOLUÇÃO",
+          opcao2: "B) VERIFICAR OS RESULTADOS",
+          opcao3: "C) ESTABELECER UMA CONTENÇÃO",
+          opcao4: "D) PADRONIZAR AÇÕES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ESTABELECER UMA CONTENÇÃO",
+        },
+        {
+          pergunta: "O que significa a sigla DMAIC?",
+          opcao1: "A) DEFINE, MEASURE, ANALYZE, IMPROVE, CONTROL",
+          opcao2: "B) DESIGN, MANAGE, ASSESS, INTEGRATE, CONTROL",
+          opcao3: "C) DEVELOP, MEASURE, ACT, IMPLEMENT, CONFIRM",
+          opcao4: "D) DETECT, MANAGE, ADJUST, IMPROVE, COMPARE",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) DEFINE, MEASURE, ANALYZE, IMPROVE, CONTROL",
+        },
+        {
+          pergunta: "Em qual etapa do DMAIC é identificado o problema?",
+          opcao1: "A) CONTROL",
+          opcao2: "B) DEFINE",
+          opcao3: "C) IMPROVE",
+          opcao4: "D) ANALYZE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) DEFINE",
+        },
+        {
+          pergunta:
+            "Quais ferramentas são comuns na etapa de Observação do MASP?",
+          opcao1: "A) CHECKLIST E 5W2H",
+          opcao2: "B) FLUXOGRAMA E DIAGRAMA DE ÁRVORE",
+          opcao3: "C) PARETO, HISTOGRAMA, GRÁFICO DE DISPERSÃO",
+          opcao4: "D) DIAGRAMA DE GANTT E MATRIZ SWOT",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PARETO, HISTOGRAMA, GRÁFICO DE DISPERSÃO",
+        },
+        {
+          pergunta: "Qual é o objetivo da etapa 'Control' do DMAIC?",
+          opcao1: "A) DEFINIR OS OBJETIVOS DO PROJETO",
+          opcao2: "B) VERIFICAR AS CAUSAS DO PROBLEMA",
+          opcao3: "C) MANTER OS RESULTADOS OBTIDOS E EVITAR REGRESSOS",
+          opcao4: "D) ANALISAR OS INDICADORES DE DESEMPENHO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) MANTER OS RESULTADOS OBTIDOS E EVITAR REGRESSOS",
+        },
+        {
+          pergunta: "O que representa o 'Kaizen' dentro do uso do PDCA?",
+          opcao1: "A) MUDANÇA RADICAL COM GRANDES INVESTIMENTOS",
+          opcao2: "B) MANUTENÇÃO DO PADRÃO ATUAL",
+          opcao3: "C) MELHORIA CONTÍNUA COM PEQUENOS INVESTIMENTOS",
+          opcao4: "D) PADRONIZAÇÃO DE TAREFAS OPERACIONAIS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) MELHORIA CONTÍNUA COM PEQUENOS INVESTIMENTOS",
+        },
+        {
+          pergunta: "Quando o 'Kaikaku' deve ser aplicado?",
+          opcao1: "A) QUANDO O KAIZEN NÃO ATINGE AS METAS PROPOSTAS",
+          opcao2: "B) SOMENTE EM PROCESSOS ADMINISTRATIVOS",
+          opcao3: "C) APÓS O CONTROLE ESTATÍSTICO DO PROCESSO",
+          opcao4: "D) SEMPRE QUE UMA IDEIA NOVA SURGE",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) QUANDO O KAIZEN NÃO ATINGE AS METAS PROPOSTAS",
+        },
+        {
+          pergunta:
+            "Qual é a principal função do Project Charter na metodologia DMAIC?",
+          opcao1: "A) REGISTRAR OS LUCROS DO PROJETO",
+          opcao2: "B) PLANEJAR O ORÇAMENTO ANUAL DA EMPRESA",
+          opcao3: "C) FORMALIZAR O ESCOPO, EQUIPE E OBJETIVOS DO PROJETO",
+          opcao4: "D) SUBSTITUIR OS RELATÓRIOS DE DESEMPENHO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) FORMALIZAR O ESCOPO, EQUIPE E OBJETIVOS DO PROJETO",
+        },
+        {
+          pergunta: "Qual ferramenta é usada na etapa 'Plano de Ação' do MASP?",
+          opcao1: "A) 5W2H",
+          opcao2: "B) DIAGRAMA DE CAUSA E EFEITO",
+          opcao3: "C) HISTOGRAMA",
+          opcao4: "D) MATRIZ GUT",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) 5W2H",
+        },
+        {
+          pergunta: "O que fazer na etapa 'Act' do PDCA?",
+          opcao1: "A) TESTAR A SOLUÇÃO",
+          opcao2: "B) COLETAR DADOS",
+          opcao3: "C) PADRONIZAR A SOLUÇÃO OU PLANEJAR NOVA AÇÃO",
+          opcao4: "D) CONTRATAR UMA CONSULTORIA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PADRONIZAR A SOLUÇÃO OU PLANEJAR NOVA AÇÃO",
+        },
+        {
+          pergunta: "Qual é uma dificuldade comum na implementação do DMAIC?",
+          opcao1: "A) FACILIDADE DE ACESSO A DADOS",
+          opcao2: "B) ENVOLVIMENTO EXCESSIVO DA ALTA ADMINISTRAÇÃO",
+          opcao3: "C) MUDANÇA DE CULTURA ORGANIZACIONAL",
+          opcao4: "D) FALTA DE PROBLEMAS RELEVANTES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) MUDANÇA DE CULTURA ORGANIZACIONAL",
+        },
+        {
+          pergunta: "Onde o DMAIC pode ser aplicado?",
+          opcao1: "A) SOMENTE NA INDÚSTRIA MANUFATUREIRA",
+          opcao2: "B) APENAS NO SETOR DE SAÚDE",
+          opcao3: "C) SOMENTE EM INSTITUIÇÕES FINANCEIRAS",
+          opcao4:
+            "D) EM DIVERSOS SETORES COMO SAÚDE, INDÚSTRIA, SERVIÇOS E EDUCAÇÃO",
+          correta: "opcao4",
+          respostaCorretaPorExtenso:
+            "D) EM DIVERSOS SETORES COMO SAÚDE, INDÚSTRIA, SERVIÇOS E EDUCAÇÃO",
+        },
+        {
+          pergunta:
+            "Qual é a vantagem de seguir metodologias como PDCA ou DMAIC?",
+          opcao1: "A) EVITAR QUALQUER TIPO DE MUDANÇA",
+          opcao2: "B) REDUZIR O NÚMERO DE COLABORADORES",
+          opcao3: "C) FAZER EFICIENTEMENTE O QUE DEVE SER FEITO",
+          opcao4: "D) ELIMINAR TODOS OS ERROS DA ORGANIZAÇÃO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) FAZER EFICIENTEMENTE O QUE DEVE SER FEITO",
+        },
+        {
+          pergunta: "O que é qualidade segundo a definição clássica?",
+          opcao1: "A) A CAPACIDADE DE PRODUZIR EM GRANDE ESCALA",
+          opcao2: "B) A CONFORMIDADE COM OS REQUISITOS",
+          opcao3: "C) A REDUÇÃO DE CUSTOS OPERACIONAIS",
+          opcao4: "D) A MODERNIZAÇÃO DOS PROCESSOS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) A CONFORMIDADE COM OS REQUISITOS",
+        },
+        {
+          pergunta: "Segundo Joseph Juran, qualidade está relacionada a:",
+          opcao1: "A) SATISFAÇÃO DO CLIENTE E AUSÊNCIA DE DEFICIÊNCIAS",
+          opcao2: "B) PRODUÇÃO EM MASSA E RAPIDEZ",
+          opcao3: "C) CONTROLE RÍGIDO DE ESTOQUE",
+          opcao4: "D) AUTOMATIZAÇÃO DE PROCESSOS",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) SATISFAÇÃO DO CLIENTE E AUSÊNCIA DE DEFICIÊNCIAS",
+        },
+        {
+          pergunta: "Para Philip Crosby, qualidade é definida como:",
+          opcao1: "A) REDUÇÃO DE CUSTOS",
+          opcao2: "B) CONFORMIDADE COM ESPECIFICAÇÕES",
+          opcao3: "C) SATISFAÇÃO DO COLABORADOR",
+          opcao4: "D) AUMENTO DA PRODUTIVIDADE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) CONFORMIDADE COM ESPECIFICAÇÕES",
+        },
+        {
+          pergunta:
+            "Qual dessas opções melhor descreve o conceito de qualidade percebida?",
+          opcao1: "A) RESULTADO DE AUDITORIAS INTERNAS",
+          opcao2: "B) AVALIAÇÃO TÉCNICA DOS PROCESSOS",
+          opcao3: "C) IMPRESSÃO QUE O CLIENTE TEM SOBRE O PRODUTO OU SERVIÇO",
+          opcao4: "D) ANÁLISE DE DESEMPENHO DE MERCADO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) IMPRESSÃO QUE O CLIENTE TEM SOBRE O PRODUTO OU SERVIÇO",
+        },
+        {
+          pergunta:
+            "Qual das alternativas representa um benefício da qualidade para as empresas?",
+          opcao1: "A) AUMENTO DE RETRABALHO",
+          opcao2: "B) ELEVAÇÃO DE CUSTOS",
+          opcao3: "C) REDUÇÃO DA COMPETITIVIDADE",
+          opcao4: "D) MELHORIA DA IMAGEM NO MERCADO",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) MELHORIA DA IMAGEM NO MERCADO",
+        },
+        {
+          pergunta: "O conceito moderno de qualidade inclui:",
+          opcao1: "A) SOMENTE A INSPEÇÃO FINAL DOS PRODUTOS",
+          opcao2: "B) A RESPONSABILIDADE EXCLUSIVA DO SETOR DE QUALIDADE",
+          opcao3: "C) A PARTICIPAÇÃO DE TODOS NA ORGANIZAÇÃO",
+          opcao4: "D) REDUÇÃO DO TEMPO DE PRODUÇÃO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) A PARTICIPAÇÃO DE TODOS NA ORGANIZAÇÃO",
+        },
+        {
+          pergunta:
+            "Qual destas frases reflete uma visão estratégica da qualidade?",
+          opcao1: "A) QUALIDADE É RESPONSABILIDADE DA PRODUÇÃO",
+          opcao2: "B) QUALIDADE É UM DIFERENCIAL COMPETITIVO",
+          opcao3: "C) QUALIDADE SÓ IMPORTA NO PÓS-VENDA",
+          opcao4: "D) QUALIDADE É SUBJETIVA DEMAIS PARA SER MEDIDA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) QUALIDADE É UM DIFERENCIAL COMPETITIVO",
+        },
+        {
+          pergunta: "A qualidade pode ser medida através de:",
+          opcao1: "A) SATISFAÇÃO DO CLIENTE E PADRÕES DEFINIDOS",
+          opcao2: "B) VELOCIDADE DE PRODUÇÃO",
+          opcao3: "C) QUANTIDADE DE PRODUTOS FABRICADOS",
+          opcao4: "D) TEMPO DE PERMANÊNCIA NO MERCADO",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) SATISFAÇÃO DO CLIENTE E PADRÕES DEFINIDOS",
+        },
+        {
+          pergunta:
+            "O foco principal da abordagem de qualidade segundo Deming é:",
+          opcao1: "A) AUMENTAR A MARGEM DE LUCRO",
+          opcao2: "B) REDUZIR O NÚMERO DE FUNCIONÁRIOS",
+          opcao3: "C) MELHORIA CONTÍNUA E SATISFAÇÃO DO CLIENTE",
+          opcao4: "D) INSPEÇÃO RIGOROSA DO PRODUTO FINAL",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) MELHORIA CONTÍNUA E SATISFAÇÃO DO CLIENTE",
+        },
+        {
+          pergunta: "Qualidade é um conceito que se aplica a:",
+          opcao1: "A) APENAS PRODUTOS FÍSICOS",
+          opcao2: "B) SOMENTE GRANDES EMPRESAS",
+          opcao3: "C) PRODUTOS E SERVIÇOS DE TODOS OS SETORES",
+          opcao4: "D) EMPRESAS COM CERTIFICAÇÕES ISO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PRODUTOS E SERVIÇOS DE TODOS OS SETORES",
+        },
+        {
+          pergunta: "Conceito de qualidade segundo ISO 9000:",
+          opcao1: "A) CONTROLE RÍGIDO DA PRODUÇÃO",
+          opcao2:
+            "B) GRAU NO QUAL UM CONJUNTO DE CARACTERÍSTICAS SATISFAZ A REQUISITOS",
+          opcao3: "C) EXCLUSIVIDADE NO ATENDIMENTO AO CLIENTE",
+          opcao4: "D) REDUÇÃO DE CUSTOS A TODO CUSTO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) GRAU NO QUAL UM CONJUNTO DE CARACTERÍSTICAS SATISFAZ A REQUISITOS",
+        },
+        {
+          pergunta:
+            "Qual desses elementos está diretamente ligado à percepção de qualidade?",
+          opcao1: "A) PREÇO DE VENDA",
+          opcao2: "B) MARKETING DA EMPRESA",
+          opcao3: "C) EXPECTATIVAS DO CLIENTE",
+          opcao4: "D) LOCALIZAÇÃO GEOGRÁFICA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) EXPECTATIVAS DO CLIENTE",
+        },
+        {
+          pergunta: "A ausência de defeitos em um produto é um exemplo de:",
+          opcao1: "A) QUALIDADE PERCEBIDA",
+          opcao2: "B) QUALIDADE PLANEJADA",
+          opcao3: "C) QUALIDADE OBJETIVA",
+          opcao4: "D) NÃO CONFORMIDADE",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) QUALIDADE OBJETIVA",
+        },
+        {
+          pergunta: "A gestão da qualidade é importante porque:",
+          opcao1: "A) AUMENTA A COMPLEXIDADE DOS PROCESSOS",
+          opcao2: "B) FOCA APENAS NA REDUÇÃO DE CUSTOS",
+          opcao3: "C) GARANTE PRODUTOS E SERVIÇOS QUE ATENDEM ÀS EXPECTATIVAS",
+          opcao4: "D) DIMINUI A RESPONSABILIDADE DOS FUNCIONÁRIOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) GARANTE PRODUTOS E SERVIÇOS QUE ATENDEM ÀS EXPECTATIVAS",
+        },
+        {
+          pergunta: "Qual destas frases representa um mito sobre qualidade?",
+          opcao1: "A) QUALIDADE CUSTA CARO",
+          opcao2: "B) QUALIDADE MELHORA A SATISFAÇÃO DO CLIENTE",
+          opcao3: "C) QUALIDADE REDUZ RETRABALHO",
+          opcao4: "D) QUALIDADE PODE SER MEDIDA",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) QUALIDADE CUSTA CARO",
+        },
+        {
+          pergunta:
+            "Segundo Garvin, qual abordagem de qualidade considera o maior número de características como indicativo de maior qualidade?",
+          opcao1: "A) ABORDAGEM CENTRADA NO VALOR",
+          opcao2: "B) ABORDAGEM CENTRADA NA FABRICAÇÃO",
+          opcao3: "C) ABORDAGEM CENTRADA NO PRODUTO",
+          opcao4: "D) ABORDAGEM TRANSCENDENTAL",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ABORDAGEM CENTRADA NO PRODUTO",
+        },
+        {
+          pergunta:
+            "Na abordagem centrada no valor, a qualidade é percebida como:",
+          opcao1: "A) PRESENÇA DE CARACTERÍSTICAS TÉCNICAS",
+          opcao2: "B) AUSÊNCIA DE ERROS NO PROCESSO DE FABRICAÇÃO",
+          opcao3: "C) O MELHOR POSSÍVEL, INDEPENDENTE DO PREÇO",
+          opcao4:
+            "D) RELAÇÃO ENTRE CUSTO E BENEFÍCIO PERCEBIDO PELO CONSUMIDOR",
+          correta: "opcao4",
+          respostaCorretaPorExtenso:
+            "D) RELAÇÃO ENTRE CUSTO E BENEFÍCIO PERCEBIDO PELO CONSUMIDOR",
+        },
+        {
+          pergunta:
+            "A abordagem da qualidade que enfatiza a conformidade com especificações e a ausência de erros é:",
+          opcao1: "A) ABORDAGEM TRANSCENDENTAL",
+          opcao2: "B) ABORDAGEM CENTRADA NO USUÁRIO",
+          opcao3: "C) ABORDAGEM CENTRADA NA FABRICAÇÃO",
+          opcao4: "D) ABORDAGEM CENTRADA NO VALOR",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ABORDAGEM CENTRADA NA FABRICAÇÃO",
+        },
+        {
+          pergunta:
+            "Qual dimensão da qualidade está relacionada à probabilidade de um produto funcionar sem falhas?",
+          opcao1: "A) DURABILIDADE",
+          opcao2: "B) CONFIABILIDADE",
+          opcao3: "C) DESEMPENHO",
+          opcao4: "D) CONFORMIDADE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) CONFIABILIDADE",
+        },
+        {
+          pergunta:
+            "A dimensão da qualidade que trata da aparência, som, gosto ou cheiro de um produto é chamada de:",
+          opcao1: "A) CONFORMIDADE",
+          opcao2: "B) ESTÉTICA/IMAGEM",
+          opcao3: "C) DESEMPENHO",
+          opcao4: "D) DURABILIDADE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) ESTÉTICA/IMAGEM",
+        },
+        {
+          pergunta:
+            "Segundo Garvin, a qualidade percebida está relacionada com:",
+          opcao1: "A) A DURABILIDADE DO PRODUTO EM CONDIÇÕES IDEAIS",
+          opcao2: "B) A CONFORMIDADE COM ESPECIFICAÇÕES TÉCNICAS",
+          opcao3: "C) A REPUTAÇÃO E IMAGEM DO PRODUTO NO MERCADO",
+          opcao4: "D) A CAPACIDADE DE ATENDIMENTO TÉCNICO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) A REPUTAÇÃO E IMAGEM DO PRODUTO NO MERCADO",
+        },
+        {
+          pergunta:
+            "Qual abordagem considera a qualidade como algo absoluto e reconhecido pela experiência, como beleza e estilo?",
+          opcao1: "A) CENTRADA NO VALOR",
+          opcao2: "B) CENTRADA NO PRODUTO",
+          opcao3: "C) TRANSCENDENTAL",
+          opcao4: "D) CENTRADA NA FABRICAÇÃO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) TRANSCENDENTAL",
+        },
+        {
+          pergunta:
+            "Qual é a principal função das normas de gestão da qualidade?",
+          opcao1: "A) REDUZIR O NÚMERO DE FUNCIONÁRIOS",
+          opcao2: "B) AUMENTAR OS PREÇOS DOS PRODUTOS",
+          opcao3: "C) TRABALHAR DE FORMA MAIS EFICIENTE E REDUZIR FALHAS",
+          opcao4: "D) ELIMINAR AUDITORIAS INTERNAS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) TRABALHAR DE FORMA MAIS EFICIENTE E REDUZIR FALHAS",
+        },
+        {
+          pergunta: "O que é uma norma?",
+          opcao1: "A) UM DOCUMENTO LEGAL OBRIGATÓRIO",
+          opcao2: "B) UMA DIRETRIZ IMPOSTA PELO GOVERNO",
+          opcao3:
+            "C) DOCUMENTO ESTABELECIDO POR CONSENSO E APROVADO POR UM ORGANISMO RECONHECIDO",
+          opcao4: "D) UMA PRÁTICA INFORMAL NO SETOR",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) DOCUMENTO ESTABELECIDO POR CONSENSO E APROVADO POR UM ORGANISMO RECONHECIDO",
+        },
+        {
+          pergunta: "Qual é a diferença entre normatização e normalização?",
+          opcao1: "A) NORMATIZAÇÃO É APLICAR NORMAS E NORMALIZAÇÃO É CRIÁ-LAS",
+          opcao2:
+            "B) NORMATIZAÇÃO É CRIAÇÃO DE NORMAS; NORMALIZAÇÃO É APLICAÇÃO",
+          opcao3: "C) AMBAS SIGNIFICAM O MESMO",
+          opcao4: "D) NORMALIZAÇÃO NÃO EXISTE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) NORMATIZAÇÃO É CRIAÇÃO DE NORMAS; NORMALIZAÇÃO É APLICAÇÃO",
+        },
+        {
+          pergunta:
+            "Qual é a função da ISO (Organização Internacional de Padronização)?",
+          opcao1: "A) FISCALIZAR EMPRESAS",
+          opcao2: "B) VENDER PRODUTOS CERTIFICADOS",
+          opcao3: "C) DESENVOLVER E PUBLICAR NORMAS TÉCNICAS GLOBAIS",
+          opcao4: "D) CRIAR LEIS TRABALHISTAS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) DESENVOLVER E PUBLICAR NORMAS TÉCNICAS GLOBAIS",
+        },
+        {
+          pergunta: "A ISO é representada no Brasil por qual organização?",
+          opcao1: "A) INMETRO",
+          opcao2: "B) ABNT",
+          opcao3: "C) ANVISA",
+          opcao4: "D) IBGE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) ABNT",
+        },
+        {
+          pergunta: "Qual norma da família ISO 9000 é certificável?",
+          opcao1: "A) ISO 9000",
+          opcao2: "B) ISO 9004",
+          opcao3: "C) ISO/TS 9002",
+          opcao4: "D) ISO 9001",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) ISO 9001",
+        },
+        {
+          pergunta: "Qual ciclo é usado para implementar a ISO 9001?",
+          opcao1: "A) CICLO ABCD",
+          opcao2: "B) CICLO DMAIC",
+          opcao3: "C) CICLO PDCA",
+          opcao4: "D) CICLO VDA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) CICLO PDCA",
+        },
+        {
+          pergunta: "Quanto tempo dura a certificação ISO 9001?",
+          opcao1: "A) 1 ANO",
+          opcao2: "B) 2 ANOS",
+          opcao3: "C) 3 ANOS",
+          opcao4: "D) 5 ANOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) 3 ANOS",
+        },
+        {
+          pergunta: "O que é certificação?",
+          opcao1: "A) ATO DE CRIAR UMA NORMA",
+          opcao2:
+            "B) AVALIAÇÃO QUE CONFIRMA QUE UMA ORGANIZAÇÃO SEGUE UMA NORMA",
+          opcao3: "C) PROCESSO DE AUDITORIA DO GOVERNO",
+          opcao4: "D) ATIVIDADE INFORMAL REALIZADA PELA EMPRESA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) AVALIAÇÃO QUE CONFIRMA QUE UMA ORGANIZAÇÃO SEGUE UMA NORMA",
+        },
+        {
+          pergunta: "Quem pode conceder certificação ISO 9001?",
+          opcao1: "A) QUALQUER CONSULTOR",
+          opcao2: "B) ORGANISMOS CREDENCIADOS PELO INMETRO",
+          opcao3: "C) AUDITOR INTERNO DA EMPRESA",
+          opcao4: "D) A PRÓPRIA EMPRESA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) ORGANISMOS CREDENCIADOS PELO INMETRO",
+        },
+        {
+          pergunta: "Qual é a diferença entre certificação e acreditação?",
+          opcao1: "A) CERTIFICAÇÃO AVALIA NORMAS E ACREDITAÇÃO AVALIA PRODUTOS",
+          opcao2:
+            "B) CERTIFICAÇÃO É PARA EMPRESAS, ACREDITAÇÃO PARA ORGANISMOS CERTIFICADORES",
+          opcao3: "C) SÃO TERMOS EQUIVALENTES",
+          opcao4: "D) CERTIFICAÇÃO É OPCIONAL, ACREDITAÇÃO É OBRIGATÓRIA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) CERTIFICAÇÃO É PARA EMPRESAS, ACREDITAÇÃO PARA ORGANISMOS CERTIFICADORES",
+        },
+        {
+          pergunta:
+            "Qual é o primeiro passo para obter a certificação ISO 9001?",
+          opcao1: "A) CONTRATAR UM ÓRGÃO CERTIFICADOR",
+          opcao2: "B) PADRONIZAR ROTINAS",
+          opcao3: "C) FAZER AUDITORIA FINAL",
+          opcao4: "D) EMITIR CERTIFICADO INTERNAMENTE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) PADRONIZAR ROTINAS",
+        },
+        {
+          pergunta:
+            "Quais são alguns benefícios de utilizar Sistemas Integrados de Gestão (SIG)?",
+          opcao1: "A) AUMENTO DA BUROCRACIA",
+          opcao2: "B) REDUÇÃO DE TEMPO E CUSTOS",
+          opcao3: "C) DIFICULDADE DE IMPLEMENTAÇÃO",
+          opcao4: "D) DUPLICAÇÃO DE DOCUMENTOS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) REDUÇÃO DE TEMPO E CUSTOS",
+        },
+        {
+          pergunta: "A ISO 9001 certifica o quê?",
+          opcao1: "A) A QUALIDADE DOS PRODUTOS FINAIS",
+          opcao2: "B) O LUCRO DA EMPRESA",
+          opcao3: "C) O PROCESSO/ATIVIDADES DA EMPRESA",
+          opcao4: "D) A REPUTAÇÃO DA EMPRESA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) O PROCESSO/ATIVIDADES DA EMPRESA",
+        },
+        {
+          pergunta:
+            "Quais são as três formas de avaliação da conformidade segundo a ISO 9001?",
+          opcao1: "A) AUDITORIA, INSPEÇÃO, TESTES",
+          opcao2: "B) PRIMEIRA, SEGUNDA E TERCEIRA PARTE",
+          opcao3: "C) INTERNA, EXTERNA E MISTA",
+          opcao4: "D) CERTIFICAÇÃO, ACREDITAÇÃO E VALIDAÇÃO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) PRIMEIRA, SEGUNDA E TERCEIRA PARTE",
+        },
+        {
+          pergunta: "O que é pesquisa de mercado?",
+          opcao1: "A) UMA TÉCNICA DE VENDAS",
+          opcao2: "B) UMA FORMA DE AUMENTAR LUCROS RAPIDAMENTE",
+          opcao3:
+            "C) A COLETA DE INFORMAÇÕES PARA ORIENTAR A TOMADA DE DECISÕES",
+          opcao4: "D) UM RELATÓRIO CONTÁBIL",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) A COLETA DE INFORMAÇÕES PARA ORIENTAR A TOMADA DE DECISÕES",
+        },
+        {
+          pergunta: "Qual é um mito comum sobre a pesquisa de mercado?",
+          opcao1: "A) ELA AJUDA A ENTENDER O MERCADO",
+          opcao2: "B) ELA É PARTE DO PLANO DE NEGÓCIOS",
+          opcao3:
+            "C) ELA É SUFICIENTE PARA AVALIAR A VIABILIDADE DO NEGÓCIO SOZINHA",
+          opcao4: "D) ELA DEVE SER FEITA POR ESPECIALISTAS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) ELA É SUFICIENTE PARA AVALIAR A VIABILIDADE DO NEGÓCIO SOZINHA",
+        },
+        {
+          pergunta:
+            "Qual das opções NÃO é um motivo para fazer pesquisa de mercado?",
+          opcao1: "A) ESCOLHER PONTO COMERCIAL",
+          opcao2: "B) AVALIAR SATISFAÇÃO DE CONSUMIDORES",
+          opcao3: "C) EXPANDIR A EQUIPE DE TI",
+          opcao4: "D) TESTAR ESTRATÉGIAS DE MARKETING",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) EXPANDIR A EQUIPE DE TI",
+        },
+        {
+          pergunta: "Qual é a primeira macro fase da pesquisa de mercado?",
+          opcao1: "A) EXECUÇÃO DA PESQUISA",
+          opcao2: "B) COMUNICAÇÃO DOS RESULTADOS",
+          opcao3: "C) PLANEJAMENTO DA PESQUISA",
+          opcao4: "D) RECONHECIMENTO E FORMULAÇÃO DO PROBLEMA",
+          correta: "opcao4",
+          respostaCorretaPorExtenso:
+            "D) RECONHECIMENTO E FORMULAÇÃO DO PROBLEMA",
+        },
+        {
+          pergunta: "O que é importante na formulação do problema?",
+          opcao1: "A) RESPONDER A PERGUNTA POR CONTA PRÓPRIA",
+          opcao2: "B) BASEAR-SE APENAS NA SUA OPINIÃO",
+          opcao3:
+            "C) ELABORAR UMA PERGUNTA CLARA A SER RESPONDIDA PELA PESQUISA",
+          opcao4: "D) IGNORAR O PÚBLICO-ALVO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) ELABORAR UMA PERGUNTA CLARA A SER RESPONDIDA PELA PESQUISA",
+        },
+        {
+          pergunta:
+            "Qual destas é uma pergunta comum na formulação do problema?",
+          opcao1: "A) QUANTOS FUNCIONÁRIOS TENHO?",
+          opcao2: "B) QUANTO DEVO COBRAR PELO MEU PRODUTO?",
+          opcao3: "C) ONDE FICA MEU ESTOQUE?",
+          opcao4: "D) QUAIS SÃO MEUS LUCROS?",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) QUANTO DEVO COBRAR PELO MEU PRODUTO?",
+        },
+        {
+          pergunta: "Quais são métodos comuns de coleta de dados?",
+          opcao1: "A) AUDITORIA CONTÁBIL",
+          opcao2: "B) OBSERVAÇÃO DIRETA E ENTREVISTAS",
+          opcao3: "C) CÁLCULOS ESTATÍSTICOS",
+          opcao4: "D) MODELAGEM 3D",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) OBSERVAÇÃO DIRETA E ENTREVISTAS",
+        },
+        {
+          pergunta: "O que caracteriza pesquisas qualitativas?",
+          opcao1: "A) EXPLORATÓRIAS E SEM RIGOR ESTATÍSTICO",
+          opcao2: "B) COM ALTO RIGOR MATEMÁTICO",
+          opcao3: "C) USAM APENAS NÚMEROS",
+          opcao4: "D) FOCADAS EM VENDAS",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) EXPLORATÓRIAS E SEM RIGOR ESTATÍSTICO",
+        },
+        {
+          pergunta: "O que são pesquisas quantitativas?",
+          opcao1: "A) AQUELAS FEITAS COM ENTREVISTAS ABERTAS",
+          opcao2: "B) QUE ANALISAM EMOÇÕES",
+          opcao3: "C) QUE LEVANTAM DADOS NUMÉRICOS COM RIGOR ESTATÍSTICO",
+          opcao4: "D) QUE NÃO SEGUEM CRITÉRIOS MATEMÁTICOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) QUE LEVANTAM DADOS NUMÉRICOS COM RIGOR ESTATÍSTICO",
+        },
+        {
+          pergunta: "Qual é um tipo de pesquisa quanto à frequência?",
+          opcao1: "A) INTERATIVA",
+          opcao2: "B) ESPORÁDICA",
+          opcao3: "C) PESSOAL",
+          opcao4: "D) ANALÍTICA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) ESPORÁDICA",
+        },
+        {
+          pergunta: "Qual das opções é uma fonte de dados secundários?",
+          opcao1: "A) ENTREVISTAS COM CLIENTES",
+          opcao2: "B) PESQUISAS ESPECÍFICAS PARA UM PROBLEMA",
+          opcao3: "C) DADOS JÁ COLETADOS PARA OUTROS FINS",
+          opcao4: "D) OBSERVAÇÃO DIRETA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) DADOS JÁ COLETADOS PARA OUTROS FINS",
+        },
+        {
+          pergunta: "O que é 'desk research'?",
+          opcao1: "A) PESQUISA DE CAMPO",
+          opcao2: "B) ENTREVISTA PRESENCIAL",
+          opcao3: "C) BUSCA E ORGANIZAÇÃO DE INFORMAÇÕES JÁ EXISTENTES",
+          opcao4: "D) APLICAÇÃO DE TESTES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) BUSCA E ORGANIZAÇÃO DE INFORMAÇÕES JÁ EXISTENTES",
+        },
+        {
+          pergunta:
+            "O que é importante avaliar ao decidir contratar uma empresa para fazer a pesquisa?",
+          opcao1: "A) SE A EMPRESA TEM ESCRITÓRIO BONITO",
+          opcao2: "B) OS PRÓS E CONTRAS DA TERCEIRIZAÇÃO",
+          opcao3: "C) SE É UMA MULTINACIONAL",
+          opcao4: "D) SE TEM MAIS DE 10 ANOS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) OS PRÓS E CONTRAS DA TERCEIRIZAÇÃO",
+        },
+        {
+          pergunta: "O que acontece na fase de execução da pesquisa?",
+          opcao1: "A) CRIAÇÃO DE INFOGRÁFICOS",
+          opcao2: "B) TABULAÇÃO E ORGANIZAÇÃO DOS DADOS",
+          opcao3: "C) PLANEJAMENTO DAS ESTRATÉGIAS",
+          opcao4: "D) APRESENTAÇÃO DOS RESULTADOS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) TABULAÇÃO E ORGANIZAÇÃO DOS DADOS",
+        },
+        {
+          pergunta: "Qual é o risco de uma má elaboração de questionário?",
+          opcao1: "A) MAIOR CUSTO DE PRODUÇÃO",
+          opcao2: "B) RESPOSTAS MUITO VARIADAS",
+          opcao3: "C) COLETA DE DADOS INÚTEIS",
+          opcao4: "D) NECESSIDADE DE TREINAR A EQUIPE",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) COLETA DE DADOS INÚTEIS",
+        },
+        {
+          pergunta: "A frase 'lixo para dentro, lixo para fora' refere-se a:",
+          opcao1: "A) NECESSIDADE DE RECICLAGEM DE PAPEL",
+          opcao2: "B) IMPORTÂNCIA DE PERGUNTAS BEM ELABORADAS",
+          opcao3: "C) DESCARTE DE INFORMAÇÕES ANTIGAS",
+          opcao4: "D) ANÁLISE ESTATÍSTICA COM ERRO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) IMPORTÂNCIA DE PERGUNTAS BEM ELABORADAS",
+        },
+        {
+          pergunta: "Qual é a última fase da pesquisa de mercado?",
+          opcao1: "A) EXECUÇÃO",
+          opcao2: "B) PLANEJAMENTO",
+          opcao3: "C) COLETA DE DADOS",
+          opcao4: "D) COMUNICAÇÃO DOS RESULTADOS",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) COMUNICAÇÃO DOS RESULTADOS",
+        },
+        {
+          pergunta: "Uma boa comunicação de resultados deve usar:",
+          opcao1: "A) TEXTOS LONGOS",
+          opcao2: "B) INFOGRÁFICOS E ESQUEMAS",
+          opcao3: "C) VÍDEOS MOTIVACIONAIS",
+          opcao4: "D) HISTÓRIAS FICTÍCIAS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) INFOGRÁFICOS E ESQUEMAS",
+        },
+        {
+          pergunta: "Quando não se deve fazer uma pesquisa?",
+          opcao1: "A) QUANDO O ORÇAMENTO ESTÁ APERTADO",
+          opcao2: "B) QUANDO A EMPRESA NÃO USARÁ OS RESULTADOS",
+          opcao3: "C) QUANDO A EQUIPE É NOVA",
+          opcao4: "D) QUANDO SE QUER INOVAR",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) QUANDO A EMPRESA NÃO USARÁ OS RESULTADOS",
+        },
+        {
+          pergunta: "Pesquisas qualitativas incluem:",
+          opcao1: "A) ENTREVISTAS EM PROFUNDIDADE",
+          opcao2: "B) PLANILHAS DE CUSTOS",
+          opcao3: "C) TABELAS COMPARATIVAS",
+          opcao4: "D) CÁLCULOS FINANCEIROS",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) ENTREVISTAS EM PROFUNDIDADE",
+        },
+        {
+          pergunta: "Pesquisas contínuas servem para:",
+          opcao1: "A) AÇÕES DE MARKETING",
+          opcao2: "B) CAMPANHAS ELEITORAIS",
+          opcao3: "C) MONITORAR CONSTANTEMENTE INDICADORES",
+          opcao4: "D) CONTROLE DE ESTOQUE",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) MONITORAR CONSTANTEMENTE INDICADORES",
+        },
+        {
+          pergunta: "Uma pesquisa cíclica é feita:",
+          opcao1: "A) SEM PLANEJAMENTO",
+          opcao2: "B) EM CICLOS DEFINIDOS PERIODICAMENTE",
+          opcao3: "C) SOMENTE UMA VEZ",
+          opcao4: "D) DE FORMA IMPROVISADA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) EM CICLOS DEFINIDOS PERIODICAMENTE",
+        },
+        {
+          pergunta: "A escolha do ponto comercial pode ser orientada por:",
+          opcao1: "A) PESQUISA DE MERCADO",
+          opcao2: "B) ESTÉTICA URBANA",
+          opcao3: "C) PREÇO DO ALUGUEL",
+          opcao4: "D) INTUIÇÃO DO DONO",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) PESQUISA DE MERCADO",
+        },
+        {
+          pergunta: "Qual das opções é uma técnica de pesquisa qualitativa?",
+          opcao1: "A) GRUPO FOCADO",
+          opcao2: "B) PLANILHA DE VENDAS",
+          opcao3: "C) ANÁLISE DE BIG DATA",
+          opcao4: "D) RELATÓRIO CONTÁBIL",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) GRUPO FOCADO",
+        },
+        {
+          pergunta:
+            "Qual deve ser a base para definição dos meios de divulgação?",
+          opcao1: "A) MODA",
+          opcao2: "B) PESQUISA DE MERCADO",
+          opcao3: "C) PREFERÊNCIA DO GERENTE",
+          opcao4: "D) CUSTO MAIS BAIXO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) PESQUISA DE MERCADO",
+        },
+        {
+          pergunta: "O que deve motivar uma pesquisa de mercado?",
+          opcao1: "A) REDUÇÃO DE SALÁRIOS",
+          opcao2: "B) AUMENTO DE IMPOSTOS",
+          opcao3: "C) LANÇAR OU MELHORAR PRODUTOS",
+          opcao4: "D) MUDANÇA DE ENDEREÇO DA EMPRESA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) LANÇAR OU MELHORAR PRODUTOS",
+        },
+        {
+          pergunta: "Pesquisas primárias são:",
+          opcao1: "A) FEITAS PARA FINALIDADES ESPECÍFICAS",
+          opcao2: "B) SEMPRE QUALITATIVAS",
+          opcao3: "C) BASEADAS EM REDES SOCIAIS",
+          opcao4: "D) PRODUZIDAS POR AGÊNCIAS DE PUBLICIDADE",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) FEITAS PARA FINALIDADES ESPECÍFICAS",
+        },
+        {
+          pergunta: "Qual das opções NÃO é um método de coleta de dados?",
+          opcao1: "A) QUESTIONÁRIO",
+          opcao2: "B) OBSERVAÇÃO DIRETA",
+          opcao3: "C) GRUPO FOCAL",
+          opcao4: "D) CÁLCULO DE LUCRO LÍQUIDO",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) CÁLCULO DE LUCRO LÍQUIDO",
+        },
+        {
+          pergunta: "Uma boa pesquisa deve resultar em:",
+          opcao1: "A) DECISÕES PRÁTICAS",
+          opcao2: "B) RELATÓRIOS EXTENSOS",
+          opcao3: "C) ESTUDOS FILOSÓFICOS",
+          opcao4: "D) DOCUMENTOS JURÍDICOS",
+          correta: "opcao1",
+          respostaCorretaPorExtenso: "A) DECISÕES PRÁTICAS",
+        },
+        {
+          pergunta: "A pesquisa de mercado deve validar:",
+          opcao1: "A) A CONTABILIDADE DA EMPRESA",
+          opcao2: "B) A CRIATIVIDADE DO EMPREENDEDOR",
+          opcao3: "C) HIPÓTESES OU IDEIAS CONCEBIDAS",
+          opcao4: "D) ORÇAMENTOS DE FORNECEDORES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) HIPÓTESES OU IDEIAS CONCEBIDAS",
+        },
+        {
+          pergunta: "O que são custos da má qualidade?",
+          opcao1: "A) CUSTOS ASSOCIADOS A FAZER AS COISAS DE FORMA CORRETA",
+          opcao2: "B) CUSTOS INCORRIDOS COM O TREINAMENTO DE COLABORADORES",
+          opcao3:
+            "C) CUSTOS INCORRIDOS POR CAUSA DA EXISTÊNCIA, OU POSSIBILIDADE DE EXISTÊNCIA, DE BAIXA QUALIDADE",
+          opcao4: "D) CUSTOS RELACIONADOS À INOVAÇÃO TECNOLÓGICA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) CUSTOS INCORRIDOS POR CAUSA DA EXISTÊNCIA, OU POSSIBILIDADE DE EXISTÊNCIA, DE BAIXA QUALIDADE",
+        },
+        {
+          pergunta:
+            "Quem propôs a classificação dos custos da qualidade em quatro categorias?",
+          opcao1: "A) PHILIP CROSBY",
+          opcao2: "B) JOSEPH JURAN",
+          opcao3: "C) KAORU ISHIKAWA",
+          opcao4: "D) ARMAND FEIGENBAUM",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) ARMAND FEIGENBAUM",
+        },
+        {
+          pergunta:
+            "Quais são as quatro categorias de custos da qualidade segundo Feigenbaum?",
+          opcao1: "A) TREINAMENTO, INSPEÇÃO, FALHAS INTERNAS, FALHAS EXTERNAS",
+          opcao2: "B) PREVENÇÃO, AVALIAÇÃO, FALHAS INTERNAS, FALHAS EXTERNAS",
+          opcao3: "C) DESENVOLVIMENTO, TESTES, CONTROLE E PERDAS",
+          opcao4: "D) QUALIDADE, CONFORMIDADE, MELHORIA E ANÁLISE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) PREVENÇÃO, AVALIAÇÃO, FALHAS INTERNAS, FALHAS EXTERNAS",
+        },
+        {
+          pergunta: "O que são custos de prevenção?",
+          opcao1: "A) GASTOS COM DEVOLUÇÕES DE PRODUTOS COM DEFEITO",
+          opcao2:
+            "B) GASTOS ASSOCIADOS À CORREÇÃO DE FALHAS APÓS O PRODUTO SER ENTREGUE",
+          opcao3:
+            "C) GASTOS PARA PLANEJAR O PROCESSO DE MODO A GARANTIR QUE NÃO OCORRAM DEFEITOS",
+          opcao4: "D) GASTOS COM PROCESSOS JUDICIAIS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) GASTOS PARA PLANEJAR O PROCESSO DE MODO A GARANTIR QUE NÃO OCORRAM DEFEITOS",
+        },
+        {
+          pergunta: "Qual dos exemplos abaixo é um custo de prevenção?",
+          opcao1: "A) RETRABALHO",
+          opcao2: "B) DESENVOLVIMENTO DE FORNECEDORES",
+          opcao3: "C) DEVOLUÇÃO DE PRODUTO",
+          opcao4: "D) REPAROS EM GARANTIA",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) DESENVOLVIMENTO DE FORNECEDORES",
+        },
+        {
+          pergunta: "O que são custos de avaliação?",
+          opcao1:
+            "A) GASTOS PARA GARANTIR QUE O PRODUTO ESTEJA CONFORME ÀS ESPECIFICAÇÕES",
+          opcao2: "B) GASTOS COM DESENVOLVIMENTO DE NOVOS PRODUTOS",
+          opcao3: "C) GASTOS COM A PERDA DE CLIENTES",
+          opcao4: "D) GASTOS COM INOVAÇÃO TECNOLÓGICA",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) GASTOS PARA GARANTIR QUE O PRODUTO ESTEJA CONFORME ÀS ESPECIFICAÇÕES",
+        },
+        {
+          pergunta: "Qual das alternativas representa um custo de avaliação?",
+          opcao1: "A) REFUGOS",
+          opcao2: "B) SAC",
+          opcao3: "C) TESTES E INSPEÇÕES DE PRODUTOS FABRICADOS",
+          opcao4: "D) TREINAMENTO DE COLABORADORES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) TESTES E INSPEÇÕES DE PRODUTOS FABRICADOS",
+        },
+        {
+          pergunta: "Custos de falhas internas ocorrem:",
+          opcao1: "A) QUANDO O CLIENTE RECEBE UM PRODUTO DEFEITUOSO",
+          opcao2: "B) DURANTE A PRODUÇÃO, ANTES DO PRODUTO CHEGAR AO CLIENTE",
+          opcao3: "C) DURANTE A INSPEÇÃO DE RECEBIMENTO",
+          opcao4: "D) NO DESENVOLVIMENTO DE NOVOS FORNECEDORES",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) DURANTE A PRODUÇÃO, ANTES DO PRODUTO CHEGAR AO CLIENTE",
+        },
+        {
+          pergunta: "Qual exemplo representa uma falha interna?",
+          opcao1: "A) PROCESSOS JUDICIAIS ACIONADOS PELO CLIENTE",
+          opcao2: "B) SAC",
+          opcao3: "C) PARADA DE PRODUÇÃO POR PEÇAS DEFEITUOSAS",
+          opcao4: "D) CUSTOS DE DEVOLUÇÃO DE PRODUTO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PARADA DE PRODUÇÃO POR PEÇAS DEFEITUOSAS",
+        },
+        {
+          pergunta: "Custos de falhas externas incluem:",
+          opcao1: "A) TREINAMENTO DE COLABORADORES",
+          opcao2: "B) MANUTENÇÃO PREVENTIVA",
+          opcao3: "C) REPAROS NO PERÍODO DE GARANTIA",
+          opcao4: "D) AVALIAÇÃO DE ESTOQUES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) REPAROS NO PERÍODO DE GARANTIA",
+        },
+        {
+          pergunta: "Qual é uma dificuldade associada aos custos da qualidade?",
+          opcao1: "A) SÃO SEMPRE FÁCEIS DE MENSURAR",
+          opcao2: "B) NÃO EXISTEM CUSTOS INDIRETOS",
+          opcao3: "C) CUSTOS COMO PERDA DE CLIENTE SÃO DIFÍCEIS DE COLETAR",
+          opcao4: "D) APENAS CUSTOS DIRETOS SÃO CONSIDERADOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) CUSTOS COMO PERDA DE CLIENTE SÃO DIFÍCEIS DE COLETAR",
+        },
+        {
+          pergunta:
+            "A curva de custo total da qualidade é dividida em quantas regiões?",
+          opcao1: "A) DUAS",
+          opcao2: "B) TRÊS",
+          opcao3: "C) QUATRO",
+          opcao4: "D) CINCO",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) TRÊS",
+        },
+        {
+          pergunta:
+            "Na região de operação da curva de custo total da qualidade, o que ocorre?",
+          opcao1: "A) O IDEAL FOI ATINGIDO EM TERMOS DE QUALIDADE",
+          opcao2: "B) HÁ ALTOS CUSTOS DE FALHA EXTERNA",
+          opcao3: "C) OS INVESTIMENTOS EM AVALIAÇÃO SÃO MÍNIMOS",
+          opcao4: "D) NÃO HÁ FALHAS NO PROCESSO",
+          correta: "opcao1",
+          respostaCorretaPorExtenso:
+            "A) O IDEAL FOI ATINGIDO EM TERMOS DE QUALIDADE",
+        },
+        {
+          pergunta:
+            "Qual é o benefício estimado de cada dólar investido em prevenção?",
+          opcao1: "A) ECONOMIA DE 2 DÓLARES",
+          opcao2: "B) ECONOMIA DE 3 DÓLARES",
+          opcao3: "C) ECONOMIA DE 4 DÓLARES",
+          opcao4: "D) ECONOMIA DE 5 DÓLARES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ECONOMIA DE 4 DÓLARES",
+        },
+        {
+          pergunta: "Qual é um obstáculo para programas de qualidade?",
+          opcao1: "A) CRENÇA DE QUE QUALIDADE TRAZ RETORNO RÁPIDO",
+          opcao2: "B) ALTA QUALIDADE SEMPRE É ECONÔMICA",
+          opcao3: "C) MEDO DE NÃO HAVER RETORNO RÁPIDO",
+          opcao4: "D) EXCESSO DE MÃO DE OBRA DISPONÍVEL",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) MEDO DE NÃO HAVER RETORNO RÁPIDO",
+        },
+        {
+          pergunta: "O que é fundamental no recrutamento para o TQM?",
+          opcao1: "A) CONTRATAR O MAIOR NÚMERO DE PESSOAS POSSÍVEL",
+          opcao2: "B) EVITAR A SELEÇÃO BASEADA EM CULTURA ORGANIZACIONAL",
+          opcao3: "C) BUSCAR UM QUADRO MÍNIMO, MAS COM BOM FIT CULTURAL",
+          opcao4: "D) SELECIONAR APENAS POR EXPERIÊNCIA TÉCNICA",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) BUSCAR UM QUADRO MÍNIMO, MAS COM BOM FIT CULTURAL",
+        },
+        {
+          pergunta: "Qual é o papel da educação e do treinamento no TQM?",
+          opcao1: "A) REDUZIR OS CUSTOS DA EMPRESA",
+          opcao2: "B) TRANSFORMAR PESSOAS NAS MELHORES NO QUE FAZEM",
+          opcao3: "C) SUBSTITUIR SUPERVISORES",
+          opcao4: "D) AUMENTAR A ROTATIVIDADE DE FUNCIONÁRIOS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) TRANSFORMAR PESSOAS NAS MELHORES NO QUE FAZEM",
+        },
+        {
+          pergunta: "Qual é uma das metas dos programas de motivação?",
+          opcao1: "A) LIMITAR A CRIATIVIDADE DOS COLABORADORES",
+          opcao2: "B) EVITAR PARTICIPAÇÃO EM GRUPO",
+          opcao3: "C) PERMITIR EXPRESSÃO DE CRIATIVIDADE E VISÃO DE FUTURO",
+          opcao4: "D) REDUZIR A FLEXIBILIDADE DOS COLABORADORES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PERMITIR EXPRESSÃO DE CRIATIVIDADE E VISÃO DE FUTURO",
+        },
+        {
+          pergunta:
+            "O que deve ser evitado nas reuniões dos programas de participação?",
+          opcao1: "A) DISCUSSÃO DE PROBLEMAS",
+          opcao2: "B) SOLUÇÕES CRIATIVAS",
+          opcao3: "C) REUNIÕES OBJETIVAS",
+          opcao4: "D) REUNIÕES VISTAS COMO PERDA DE TEMPO",
+          correta: "opcao4",
+          respostaCorretaPorExtenso: "D) REUNIÕES VISTAS COMO PERDA DE TEMPO",
+        },
+        {
+          pergunta: "O que os programas de sugestões buscam?",
+          opcao1: "A) CONTROLAR OS COLABORADORES",
+          opcao2: "B) ELIMINAR A NECESSIDADE DE REUNIÕES",
+          opcao3: "C) ESTIMULAR A PROPOSIÇÃO DE MELHORIAS POR TODOS",
+          opcao4: "D) PREMIAR SOMENTE LÍDERES",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) ESTIMULAR A PROPOSIÇÃO DE MELHORIAS POR TODOS",
+        },
+        {
+          pergunta:
+            "Qual das alternativas é uma característica dos programas de sugestões?",
+          opcao1: "A) IDEIAS NÃO PRECISAM DE ANÁLISE",
+          opcao2: "B) DEVEM SER ANALISADAS POR VIABILIDADE E IMPACTO",
+          opcao3: "C) SÃO DE FÁCIL ADMINISTRAÇÃO",
+          opcao4: "D) SÃO DESCARTADAS AUTOMATICAMENTE",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) DEVEM SER ANALISADAS POR VIABILIDADE E IMPACTO",
+        },
+        {
+          pergunta: "O que são os Círculos de Controle de Qualidade (CCQ)?",
+          opcao1: "A) REUNIÕES ESPORÁDICAS SOBRE QUALIDADE",
+          opcao2: "B) PROGRAMAS OBRIGATÓRIOS DE AVALIAÇÃO DE DESEMPENHO",
+          opcao3: "C) GRUPOS VOLUNTÁRIOS QUE ATUAM NA MELHORIA CONTÍNUA",
+          opcao4: "D) CONSULTORIAS EXTERNAS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) GRUPOS VOLUNTÁRIOS QUE ATUAM NA MELHORIA CONTÍNUA",
+        },
+        {
+          pergunta: "Qual é um dos objetivos dos CCQs?",
+          opcao1: "A) REDUZIR A PARTICIPAÇÃO DOS FUNCIONÁRIOS",
+          opcao2: "B) DELEGAR DECISÕES À DIRETORIA",
+          opcao3: "C) PROMOVER A AUTO E MÚTUO-DESENVOLVIMENTO",
+          opcao4: "D) FOCAR APENAS EM CUSTOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) PROMOVER A AUTO E MÚTUO-DESENVOLVIMENTO",
+        },
+        {
+          pergunta: "Quem pode participar dos CCQs?",
+          opcao1: "A) APENAS FUNCIONÁRIOS EFETIVOS",
+          opcao2: "B) SOMENTE GERENTES E SUPERVISORES",
+          opcao3: "C) TODOS OS COLABORADORES, EXCETO O COMITÊ GESTOR",
+          opcao4: "D) APENAS ESTAGIÁRIOS",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) TODOS OS COLABORADORES, EXCETO O COMITÊ GESTOR",
+        },
+        {
+          pergunta: "Qual é o papel do líder no CCQ?",
+          opcao1: "A) SOMENTE ANOTAR REUNIÕES",
+          opcao2: "B) TOMAR DECISÕES SOZINHO",
+          opcao3: "C) ORIENTAR O GRUPO E ENCAMINHAR SUGESTÕES",
+          opcao4: "D) ATUAR COMO REPRESENTANTE LEGAL",
+          correta: "opcao3",
+          respostaCorretaPorExtenso:
+            "C) ORIENTAR O GRUPO E ENCAMINHAR SUGESTÕES",
+        },
+        {
+          pergunta:
+            "Segundo Kaoru Ishikawa, quem é responsável pela qualidade?",
+          opcao1: "A) A DIRETORIA",
+          opcao2: "B) O SETOR DE QUALIDADE",
+          opcao3: "C) TODOS OS TRABALHADORES",
+          opcao4: "D) APENAS O GERENTE",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) TODOS OS TRABALHADORES",
+        },
+        {
+          pergunta: "Qual é a origem dos CCQs?",
+          opcao1: "A) ESTADOS UNIDOS, EM 1970",
+          opcao2: "B) ALEMANHA, EM 1980",
+          opcao3: "C) JAPÃO, EM 1962",
+          opcao4: "D) BRASIL, EM 1972",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) JAPÃO, EM 1962",
+        },
+        {
+          pergunta: "Qual das seguintes é uma característica do CCQ?",
+          opcao1: "A) COMPROMISSO COM RESULTADOS OBRIGATÓRIOS",
+          opcao2: "B) DECISÕES POR CONSENSO",
+          opcao3: "C) LÍDER ESCOLHIDO PELO RH",
+          opcao4: "D) FOCO EM RESULTADOS INDIVIDUAIS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso: "B) DECISÕES POR CONSENSO",
+        },
+        {
+          pergunta: "Qual é uma vantagem do consenso nas decisões do CCQ?",
+          opcao1: "A) MAIOR VELOCIDADE DE DECISÕES",
+          opcao2: "B) MENOR COMPROMETIMENTO COM OS RESULTADOS",
+          opcao3: "C) MAIOR RESISTÊNCIA À MUDANÇA",
+          opcao4: "D) COMPROMETIMENTO COLETIVO COM A EXECUÇÃO",
+          correta: "opcao4",
+          respostaCorretaPorExtenso:
+            "D) COMPROMETIMENTO COLETIVO COM A EXECUÇÃO",
+        },
+        {
+          pergunta: "Qual é o foco das atividades dos CCQs?",
+          opcao1: "A) CONSULTORIA EXTERNA E AVALIAÇÕES DE MERCADO",
+          opcao2: "B) CONTROLE FINANCEIRO E INVESTIMENTO",
+          opcao3: "C) ROTINA E MELHORIAS NOS PROCESSOS",
+          opcao4: "D) CONTRATAÇÃO E DEMISSÃO",
+          correta: "opcao3",
+          respostaCorretaPorExtenso: "C) ROTINA E MELHORIAS NOS PROCESSOS",
+        },
+        {
+          pergunta: "Qual é o principal objetivo da norma ISO 9001:2015?",
+          opcao1: "A) GARANTIR A PADRONIZAÇÃO DE PRODUTOS EM NÍVEL GLOBAL",
+          opcao2:
+            "B) ESTABELECER UM SISTEMA DE GESTÃO DA QUALIDADE FOCADO NA MELHORIA CONTÍNUA E SATISFAÇÃO DO CLIENTE",
+          opcao3: "C) OBRIGAR EMPRESAS A SEGUIR PROCESSOS BUROCRÁTICOS",
+          opcao4:
+            "D) SUBSTITUIR AUDITORIAS INTERNAS POR CERTIFICAÇÕES EXTERNAS",
+          correta: "opcao2",
+          respostaCorretaPorExtenso:
+            "B) ESTABELECER UM SISTEMA DE GESTÃO DA QUALIDADE FOCADO NA MELHORIA CONTÍNUA E SATISFAÇÃO DO CLIENTE",
+        },
+      ];
+
+      function sortearNúmero() {
+        const indice = Math.floor(Math.random() * perguntas.length);
+        return indice;
+      }
+
+      const body = document.body;
+
+      let qtdEquipes = 3;
+      let qtdPerguntas = 10;
+      let maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+      let nomesEquipes = ["", "", "", "", "", ""];
+      let contadorEquipes = 0;
+
+      let pontuacao = [];
+
+      let vez = 0;
+
+      /* CRONÔMETRO */
+
+      let tempoInicial = 60;
+      let tempoRestante = tempoInicial;
+      let intervalo = null;
+      let callbackAtualizacao = null;
+
+      function iniciarCronometro() {
+        if (intervalo !== null) return;
+
+        intervalo = setInterval(() => {
+          if (tempoRestante > 0) {
+            tempoRestante--;
+            if (typeof callbackAtualizacao === "function") {
+              callbackAtualizacao(tempoRestante);
+            }
+          } else {
+            clearInterval(intervalo);
+            intervalo = null;
+            if (typeof callbackAtualizacao === "function") {
+              callbackAtualizacao(0);
+            }
+          }
+        }, 1000);
+      }
+
+      function resetarCronometro() {
+        clearInterval(intervalo);
+        intervalo = null;
+        tempoRestante = tempoInicial;
+        if (typeof callbackAtualizacao === "function") {
+          callbackAtualizacao(tempoRestante);
+        }
+      }
+
+      function onAtualizarTempo(callback) {
+        callbackAtualizacao = callback;
+      }
+
+      /* CRONÔMETRO */
+
+      let enterListenerGlobal = null;
+
+      function atualizarEnterListener(novoListener) {
+        if (enterListenerGlobal) {
+          document.removeEventListener("keydown", enterListenerGlobal);
+        }
+        enterListenerGlobal = novoListener;
+        document.addEventListener("keydown", enterListenerGlobal);
+      }
+
+      carregarTela1();
+
+      function carregarTela1() {
+        body.innerHTML = `<main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="subTituloParagrafo">
+                <h2>Bora jogar?</h2>
+                <p>Aqui, qualidade é coisa séria… mas o jogo é diversão pura! Teste seus conhecimentos sobre gerência da qualidade, ganhe pontos e mostre que vocês são os mestres da melhoria contínua!</p>
+            </div>
+            <section>
+                <div class="frente" id="primeiroBotao">
+                    <p>JOGAR</p>
+                </div>
+                <div class="tras">
+                    <p>JOGAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+        const primeiroBotao = document.getElementById("primeiroBotao");
+        primeiroBotao.addEventListener("click", function () {
+          maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+          if (maxPerguntas == 0) {
+            alert("Todas as perguntas foram feitas. Recarregando a página...");
+            location.reload();
+          } else {
+            carregarTela2();
+          }
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+            if (maxPerguntas == 0) {
+              alert(
+                "Todas as perguntas foram feitas. Recarregando a página..."
+              );
+              location.reload();
+            } else {
+              carregarTela2();
+            }
+          }
+        });
+      }
+
+      function carregarTela2() {
+        body.innerHTML = `<header>
+        <div class="icone" id="voltarPrimeiraTela">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="um"></p></div>
+            <p>Etapa 1/5</p>
+        </nav>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="subTituloParagrafo">
+                <h2>Defina as equipes</h2>
+                <p>Selecione o número de equipes que irão competir.</p>
+            </div>
+            <article>
+                <section>
+                    <div class="frente" id="diminuir">
+                        <p class="tamanhoFonteDiminuirEAumentar">-</p>
+                    </div>
+                    <div class="tras">
+                        <p class="tamanhoFonteDiminuirEAumentar">-</p>
+                    </div>
+                </section>
+                <input class="numerico" type="text" inputmode="numeric" id="quantidadeEquipes" pattern="[1-9]*" value="${qtdEquipes}">
+                <section>
+                    <div class="frente" id="aumentar">
+                        <p class="tamanhoFonteDiminuirEAumentar">+</p>
+                    </div>
+                    <div class="tras">
+                        <p class="tamanhoFonteDiminuirEAumentar">+</p>
+                    </div>
+                </section>
+            </article>
+            <section>
+                <div class="frente" id="segundoBotao">
+                    <p>CONTINUAR</p>
+                </div>
+                <div class="tras">
+                    <p>CONTINUAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+        const voltarPrimeiraTela =
+          document.getElementById("voltarPrimeiraTela");
+        voltarPrimeiraTela.addEventListener("click", carregarTela1);
+
+        const diminuir = document.getElementById("diminuir");
+        const aumentar = document.getElementById("aumentar");
+        const quantidadeEquipes = document.getElementById("quantidadeEquipes");
+
+        diminuir.addEventListener("click", function () {
+          if (quantidadeEquipes.value > 1) {
+            quantidadeEquipes.value--;
+          }
+        });
+
+        aumentar.addEventListener("click", function () {
+          if (quantidadeEquipes.value < 6) {
+            quantidadeEquipes.value++;
+          }
+        });
+
+        const segundoBotao = document.getElementById("segundoBotao");
+        segundoBotao.addEventListener("click", function () {
+          qtdEquipes = quantidadeEquipes.value;
+          maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+          if (maxPerguntas < qtdPerguntas) {
+            qtdPerguntas = maxPerguntas;
+          }
+          carregarTela3();
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            qtdEquipes = quantidadeEquipes.value;
+            maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+            if (maxPerguntas < qtdPerguntas) {
+              qtdPerguntas = maxPerguntas;
+            }
+            carregarTela3();
+          }
+        });
+
+        quantidadeEquipes.addEventListener("change", function () {
+          if (![1, 2, 3, 4, 5, 6].includes(Number(quantidadeEquipes.value))) {
+            quantidadeEquipes.value = 3;
+          }
+        });
+      }
+
+      function carregarTela3() {
+        body.innerHTML = `<header>
+        <div class="icone" id="voltarSegundaTela">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="dois"></p></div>
+            <p>Etapa 2/5</p>
+        </nav>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="subTituloParagrafo">
+                <h2>Defina as perguntas</h2>
+                <p>Selecione a quantidade de perguntas por equipe.</p>
+            </div>
+            <article>
+                <section>
+                    <div class="frente" id="diminuir">
+                        <p class="tamanhoFonteDiminuirEAumentar">-</p>
+                    </div>
+                    <div class="tras">
+                        <p class="tamanhoFonteDiminuirEAumentar">-</p>
+                    </div>
+                </section>
+                <input class="numerico" type="text" id="quantidadePerguntas_" inputmode="numeric" pattern="[1-9]*" value="${qtdPerguntas}">
+                <section>
+                    <div class="frente" id="aumentar">
+                        <p class="tamanhoFonteDiminuirEAumentar">+</p>
+                    </div>
+                    <div class="tras">
+                        <p class="tamanhoFonteDiminuirEAumentar">+</p>
+                    </div>
+                </section>
+            </article>
+            <section>
+                <div class="frente" id="segundoBotao">
+                    <p>CONTINUAR</p>
+                </div>
+                <div class="tras">
+                    <p>CONTINUAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+        maxPerguntas = Math.floor(perguntas.length / qtdEquipes);
+        const voltarSegundaTela = document.getElementById("voltarSegundaTela");
+        voltarSegundaTela.addEventListener("click", carregarTela2);
+
+        const diminuir = document.getElementById("diminuir");
+        const aumentar = document.getElementById("aumentar");
+        const quantidadePerguntas_ = document.getElementById(
+          "quantidadePerguntas_"
+        );
+
+        diminuir.addEventListener("click", function () {
+          if (Number(quantidadePerguntas_.value) > 1) {
+            quantidadePerguntas_.value--;
+          }
+        });
+
+        aumentar.addEventListener("click", function () {
+          if (Number(quantidadePerguntas_.value) < maxPerguntas) {
+            quantidadePerguntas_.value++;
+          }
+        });
+
+        const segundoBotao = document.getElementById("segundoBotao");
+        segundoBotao.addEventListener("click", function () {
+          qtdPerguntas = Number(quantidadePerguntas_.value);
+          carregarTela4();
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            qtdPerguntas = Number(quantidadePerguntas_.value);
+            carregarTela4();
+          }
+        });
+
+        quantidadePerguntas_.addEventListener("change", function () {
+          const arr = [];
+          for (let i = 1; i <= maxPerguntas; i++) {
+            arr.push(i);
+          }
+          if (!arr.includes(Number(quantidadePerguntas_.value))) {
+            quantidadePerguntas_.value = maxPerguntas;
+          }
+        });
+      }
+
+      function carregarTela4() {
+        body.innerHTML = `<header>
+        <div class="icone" id="voltarTerceiraTela">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="tres"></p></div>
+            <p>Etapa 3/5</p>
+        </nav>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="subTituloParagrafo">
+                <h2>Equipe ${contadorEquipes + 1}</h2>
+                <p>Dê um nome para a sua equipe.</p>
+            </div>
+            <article>
+                <input class="texto" value="${
+                  nomesEquipes[contadorEquipes]
+                }" id="nomeDaEquipe" type="text" maxlength="14" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" placeholder="ESCREVA O NOME"/>
+            </article>
+            <section>
+                <div class="frente" id="terceiroBotao">
+                    <p>CONTINUAR</p>
+                </div>
+                <div class="tras">
+                    <p>CONTINUAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+
+        const voltarTerceiraTela =
+          document.getElementById("voltarTerceiraTela");
+        voltarTerceiraTela.addEventListener("click", function () {
+          carregarTela3();
+          contadorEquipes = 0;
+        });
+
+        const nomeDaEquipe = document.getElementById("nomeDaEquipe");
+        nomeDaEquipe.focus();
+        const terceiroBotao = document.getElementById("terceiroBotao");
+
+        terceiroBotao.addEventListener("click", function () {
+          if (nomeDaEquipe.value) {
+            if (contadorEquipes < qtdEquipes - 1) {
+              nomesEquipes[contadorEquipes] = nomeDaEquipe.value;
+              contadorEquipes++;
+              carregarTela4();
+            } else if (contadorEquipes == qtdEquipes - 1) {
+              nomesEquipes[contadorEquipes] = nomeDaEquipe.value;
+              carregarTela5();
+            }
+          }
+        });
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            const nomeDaEquipe = document.getElementById("nomeDaEquipe");
+            if (nomeDaEquipe && nomeDaEquipe.value) {
+              if (contadorEquipes < qtdEquipes - 1) {
+                nomesEquipes[contadorEquipes] = nomeDaEquipe.value;
+                contadorEquipes++;
+                carregarTela4();
+              } else if (contadorEquipes == qtdEquipes - 1) {
+                nomesEquipes[contadorEquipes] = nomeDaEquipe.value;
+                carregarTela5();
+              }
+            }
+          }
+        });
+      }
+
+      function carregarTela5() {
+        body.innerHTML = `<header>
+        <div class="icone" id="voltarTela4">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="quatro"></p></div>
+            <p>Etapa 4/5</p>
+        </nav>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="grid" id="divNomes">           
+            </div>
+            <section>
+                <div class="frente" id="continuarTelaSeis">
+                    <p>CONTINUAR</p>
+                </div>
+                <div class="tras">
+                    <p>CONTINUAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+        const voltarTela4 = document.getElementById("voltarTela4");
+        voltarTela4.addEventListener("click", function () {
+          contadorEquipes = 0;
+          carregarTela4();
+        });
+        const grid = document.getElementById("divNomes");
+
+        for (let i = 0; i < qtdEquipes; i++) {
+          const j = i + 1;
+          grid.innerHTML += `<span>
+                    <p>Equipe ${j}</p>
+                    <input class="texto" value="${nomesEquipes[i]}" type="text" maxlength="14" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" placeholder="ESCREVA O NOME"/>
+                </span>`;
+        }
+
+        const continuarTelaSeis = document.getElementById("continuarTelaSeis");
+        continuarTelaSeis.addEventListener("click", function () {
+          const inputs = document.querySelectorAll("#divNomes input.texto");
+
+          const todosPreenchidos = Array.from(inputs).every(
+            (input) => input.value.trim() !== ""
+          );
+
+          if (todosPreenchidos) {
+            for (let i = 0; i < qtdEquipes; i++) {
+              nomesEquipes[i] = inputs[i].value.trim().toUpperCase();
+            }
+
+            carregarTela6();
+          }
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            const inputs = document.querySelectorAll("#divNomes input.texto");
+
+            const todosPreenchidos = Array.from(inputs).every(
+              (input) => input.value.trim() !== ""
+            );
+
+            if (todosPreenchidos) {
+              for (let i = 0; i < qtdEquipes; i++) {
+                nomesEquipes[i] = inputs[i].value.trim().toUpperCase();
+              }
+
+              carregarTela6();
+            }
+          }
+        });
+      }
+
+      function carregarTela6() {
+        body.innerHTML = `<header>
+        <div class="icone" id="voltarTelaCinco">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="cinco"></p></div>
+            <p>Etapa 5/5</p>
+        </nav>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>QualiQuiz</h1>
+            <div class="subTituloParagrafo">
+                <h2>Regras do jogo</h2>
+                <p>Cada equipe tem 1 minuto pra responder. Se o tempo acabar, nada de pontos — a vez passa pra próxima equipe! Então pensem rápido! Boa sorte!</p>
+            </div>
+            <section>
+                <div class="frente" id="seguirTelaSete">
+                    <p>COMEÇAR</p>
+                </div>
+                <div class="tras">
+                    <p>COMEÇAR</p>
+                </div>
+            </section>
+        </div>
+    </main>`;
+        const voltarTelaCinco = document.getElementById("voltarTelaCinco");
+        voltarTelaCinco.addEventListener("click", carregarTela5);
+
+        const seguirTelaSete = document.getElementById("seguirTelaSete");
+        seguirTelaSete.addEventListener("click", function () {
+          for (let i = 0; i < nomesEquipes.length; i++) {
+            pontuacao.push({
+              nomeEquipe: nomesEquipes[i],
+              pontuacao: 0,
+              qtdPerguntas_: 0,
+            });
+          }
+          carregarTela7();
+        });
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            for (let i = 0; i < nomesEquipes.length; i++) {
+              pontuacao.push({
+                nomeEquipe: nomesEquipes[i],
+                pontuacao: 0,
+                qtdPerguntas_: 0,
+              });
+            }
+            carregarTela7();
+          }
+        });
+      }
+
+      function carregarTela7() {
+        body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="telaInicial">
+            <h1>${pontuacao[vez].nomeEquipe}</h1>
+            <div class="subTituloParagrafo">
+                <h2>É a sua vez</h2>
+                <p>Mostrem que qualidade é com vocês!</p>
+            </div>
+            <section>
+                <div class="frente" id="irParaPergunta">
+                    <p>BORA LÁ</p>
+                </div>
+                <div class="tras">
+                    <p>BORA LÁ</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        funcionarConfiguracao();
+        const configuracaoTelaSete = document.getElementById(
+          "configuracaoTelaSete"
+        );
+        const config = document.getElementById("config");
+        configuracaoTelaSete.addEventListener("click", function () {
+          config.classList.toggle("aparecerConfiguracao");
+        });
+
+        const irParaPergunta = document.getElementById("irParaPergunta");
+        irParaPergunta.addEventListener("click", function () {
+          if (enterListenerGlobal) {
+            document.removeEventListener("keydown", enterListenerGlobal);
+            enterListenerGlobal = null; // Limpa a referência
+          }
+
+          carregarTela8();
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            if (enterListenerGlobal) {
+              document.removeEventListener("keydown", enterListenerGlobal);
+              enterListenerGlobal = null; // Limpa a referência
+            }
+
+            carregarTela8();
+          }
+        });
+      }
+
+      function funcionarConfiguracao() {
+        const botaoSair = document.getElementById("botaoSair");
+        botaoSair.addEventListener("click", function () {
+          window.close();
+        });
+        const botaoNovoJogo = document.getElementById("botaoNovoJogo");
+        botaoNovoJogo.addEventListener("click", function () {
+          qtdEquipes = 3;
+          qtdPerguntas = 5;
+          maxPerguntas = 10;
+          nomesEquipes = ["", "", "", "", "", ""];
+          contadorEquipes = 0;
+          carregarTela1();
+        });
+        const botaoRecomecar = document.getElementById("botaoRecomecar");
+        botaoRecomecar.addEventListener("click", function () {
+          contadorEquipes = 0;
+          carregarTela1();
+        });
+      }
+
+      function carregarTela8() {
+        const numeroPergunta = sortearNúmero();
+
+        iniciarCronometro();
+
+        body.innerHTML = `<header>
+    <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+        <nav>
+            <div><p class="tempo" id="tempoRestante"></p></div>
+            <p id="cronometro">Tempo restante: 60s</p>
+        </nav>
+    </header>
+    <main>
+        <div class="cardPergunta">
+            <footer>
+                <h1>Pergunta ${
+                  pontuacao[vez].qtdPerguntas_ + 1
+                }</h1><p id="quantidadePerguntas"> / ${qtdPerguntas}</p>
+            </footer>
+            <p id="pergunta">${perguntas[numeroPergunta].pergunta}</p>
+            <aside>
+                <section>
+                    <p class="opcaoFrenteClaro" id="opcao1">${
+                      perguntas[numeroPergunta].opcao1
+                    }</p>
+                    <p class="opcaoTrasClaro">${
+                      perguntas[numeroPergunta].opcao1
+                    }</p>
+                </section>
+                <section>
+                    <p class="opcaoFrenteEscuro" id="opcao2">${
+                      perguntas[numeroPergunta].opcao2
+                    }</p>
+                    <p class="opcaoTrasEscuro">${
+                      perguntas[numeroPergunta].opcao2
+                    }</p>
+                </section>
+                <section>
+                    <p class="opcaoFrenteClaro" id="opcao3">${
+                      perguntas[numeroPergunta].opcao3
+                    }</p>
+                    <p class="opcaoTrasClaro">${
+                      perguntas[numeroPergunta].opcao3
+                    }</p>
+                </section>
+                <section>
+                    <p class="opcaoFrenteEscuro" id="opcao4">${
+                      perguntas[numeroPergunta].opcao4
+                    }</p>
+                    <p class="opcaoTrasEscuro">${
+                      perguntas[numeroPergunta].opcao4
+                    }</p>
+                </section>                
+            </aside>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>
+    <div id="confirmacaoResposta" class="aparecerConfiguracao">
+        <div class="telaInicial">
+            <h1>Vocês têm certeza da resposta?</h1>
+            <div class="subTituloParagrafo" id="alternativaEOpcao">
+            </div>
+            <div class="confCancela">
+                <section>
+                    <div class="frente" id="botaoConfirmarResposta">
+                        <p>CONFIRMAR</p>
+                    </div>
+                    <div class="tras">
+                        <p>CONFIRMAR</p>
+                    </div>
+                </section>
+                <h6 id="cancelarEscolhaResposta">CANCELAR</h6>
+            </div>
+        </div>
+    </div>`;
+        const tempoRestante = document.getElementById("tempoRestante");
+        const display = document.getElementById("cronometro");
+        onAtualizarTempo((tempo) => {
+          if (tempo <= 0) {
+            pontuacao[vez].qtdPerguntas_ += 1;
+            carregarTela11(numeroPergunta);
+            resetarCronometro();
+          } else {
+            display.textContent = `Tempo restante: ${tempo}s`;
+            tempoRestante.style.width = (tempo * 100) / 60 + "%";
+          }
+        });
+
+        funcionarConfiguracao();
+        const configuracaoTelaSete = document.getElementById(
+          "configuracaoTelaSete"
+        );
+        const config = document.getElementById("config");
+        configuracaoTelaSete.addEventListener("click", function () {
+          config.classList.toggle("aparecerConfiguracao");
+        });
+
+        let respostaEscolhida;
+
+        const opcao1 = document.getElementById("opcao1");
+        const opcao2 = document.getElementById("opcao2");
+        const opcao3 = document.getElementById("opcao3");
+        const opcao4 = document.getElementById("opcao4");
+
+        opcao1.addEventListener("click", function () {
+          respostaEscolhida = "opcao1";
+          clicarNaOpcao();
+          alternativaEOpcao.innerHTML = `<h2>Alternativa A</h2>
+                <p>${perguntas[numeroPergunta].opcao1.substring(3)}</p>`;
+        });
+        opcao2.addEventListener("click", function () {
+          respostaEscolhida = "opcao2";
+          clicarNaOpcao();
+          alternativaEOpcao.innerHTML = `<h2>Alternativa B</h2>
+                <p>${perguntas[numeroPergunta].opcao2.substring(3)}</p>`;
+        });
+        opcao3.addEventListener("click", function () {
+          respostaEscolhida = "opcao3";
+          clicarNaOpcao();
+          alternativaEOpcao.innerHTML = `<h2>Alternativa C</h2>
+                <p>${perguntas[numeroPergunta].opcao3.substring(3)}</p>`;
+        });
+        opcao4.addEventListener("click", function () {
+          respostaEscolhida = "opcao4";
+          clicarNaOpcao();
+          alternativaEOpcao.innerHTML = `<h2>Alternativa D</h2>
+                <p>${perguntas[numeroPergunta].opcao4.substring(3)}</p>`;
+        });
+
+        const alternativaEOpcao = document.getElementById("alternativaEOpcao");
+
+        const confirmacaoResposta = document.getElementById(
+          "confirmacaoResposta"
+        );
+
+        function clicarNaOpcao() {
+          confirmacaoResposta.classList.toggle("aparecerConfiguracao");
+        }
+
+        const botaoConfirmarResposta = document.getElementById(
+          "botaoConfirmarResposta"
+        );
+
+        botaoConfirmarResposta.addEventListener("click", function () {
+          if (respostaEscolhida == perguntas[numeroPergunta].correta) {
+            pontuacao[vez].pontuacao += 1;
+            pontuacao[vez].qtdPerguntas_ += 1;
+            carregarTela12(numeroPergunta);
+            resetarCronometro();
+          } else {
+            pontuacao[vez].qtdPerguntas_ += 1;
+            carregarTela11(numeroPergunta);
+            resetarCronometro();
+          }
+        });
+
+        const cancelarEscolhaResposta = document.getElementById(
+          "cancelarEscolhaResposta"
+        );
+        cancelarEscolhaResposta.addEventListener("click", function () {
+          clicarNaOpcao();
+          respostaEscolhida = "";
+        });
+      }
+
+      function carregarTela11(numeroPergunta) {
+        body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="ultimaTela">
+            <div class="alinharFinal">
+                <h1>Hmm...não era bem essa!</h1>
+                <p>A resposta correta é:</p>
+                <h5>${perguntas[numeroPergunta].respostaCorretaPorExtenso}</h5>
+            </div>
+            <div class="confCancela">
+                <section>
+                    <div class="frente" id="verificarVencedorOuContinuar">
+                        <p>CONTINUAR</p>
+                    </div>
+                    <div class="tras">
+                        <p>CONTINUAR</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        funcionarConfiguracao();
+        const configuracaoTelaSete = document.getElementById(
+          "configuracaoTelaSete"
+        );
+        const config = document.getElementById("config");
+        configuracaoTelaSete.addEventListener("click", function () {
+          config.classList.toggle("aparecerConfiguracao");
+        });
+
+        const verificarVencedorOuContinuar = document.getElementById(
+          "verificarVencedorOuContinuar"
+        );
+        verificarVencedorOuContinuar.addEventListener("click", function () {
+          if (vez < qtdEquipes - 1) {
+            vez++;
+            perguntas.splice(numeroPergunta, 1);
+            carregarTela7();
+          } else {
+            if (pontuacao[vez].qtdPerguntas_ == qtdPerguntas) {
+              //Finaliza
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela13();
+            } else {
+              vez = 0;
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela7();
+            }
+          }
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            if (vez < qtdEquipes - 1) {
+              vez++;
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela7();
+            } else {
+              if (pontuacao[vez].qtdPerguntas_ == qtdPerguntas) {
+                //Finaliza
+                perguntas.splice(numeroPergunta, 1);
+                carregarTela13();
+              } else {
+                vez = 0;
+                perguntas.splice(numeroPergunta, 1);
+                carregarTela7();
+              }
+            }
+          }
+        });
+      }
+
+      function carregarTela12(numeroPergunta) {
+        body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="ultimaTela">
+            <div class="alinharFinal">
+                <h1>Boaa!! Vocês arrasaram!</h1>
+                <p>Essa é a resposta correta.</p>
+                <h5>${perguntas[numeroPergunta].respostaCorretaPorExtenso}</h5>
+            </div>
+            <div class="confCancela">
+                <section>
+                    <div class="frente" id="verificarVencedorOuContinuar">
+                        <p>CONTINUAR</p>
+                    </div>
+                    <div class="tras">
+                        <p>CONTINUAR</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        funcionarConfiguracao();
+        const configuracaoTelaSete = document.getElementById(
+          "configuracaoTelaSete"
+        );
+        const config = document.getElementById("config");
+        configuracaoTelaSete.addEventListener("click", function () {
+          config.classList.toggle("aparecerConfiguracao");
+        });
+
+        const verificarVencedorOuContinuar = document.getElementById(
+          "verificarVencedorOuContinuar"
+        );
+        verificarVencedorOuContinuar.addEventListener("click", function () {
+          if (vez < qtdEquipes - 1) {
+            vez++;
+            perguntas.splice(numeroPergunta, 1);
+            carregarTela7();
+          } else {
+            if (pontuacao[vez].qtdPerguntas_ == qtdPerguntas) {
+              //Finaliza
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela13();
+            } else {
+              vez = 0;
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela7();
+            }
+          }
+        });
+
+        atualizarEnterListener(function (event) {
+          if (event.key === "Enter") {
+            if (vez < qtdEquipes - 1) {
+              vez++;
+              perguntas.splice(numeroPergunta, 1);
+              carregarTela7();
+            } else {
+              if (pontuacao[vez].qtdPerguntas_ == qtdPerguntas) {
+                //Finaliza
+                perguntas.splice(numeroPergunta, 1);
+                carregarTela13();
+              } else {
+                vez = 0;
+                perguntas.splice(numeroPergunta, 1);
+                carregarTela7();
+              }
+            }
+          }
+        });
+      }
+
+      function carregarTela13() {
+        const style = document.createElement("style");
+        const ranking = pontuacao.sort((a, b) => b.pontuacao - a.pontuacao);
+        if (qtdEquipes == 1) {
+          style.textContent = `
+  .primeiro {
+    position: absolute;
+    background-color: #FF5E01;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw * 95 / 1440);
+    height: calc(100% - (100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+  .primeiro::after {
+    content: '${pontuacao[0].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.primeiro::before {
+    content: '${pontuacao[0].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+`;
+          body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="premiacao">
+            <div class="alinharFinal">
+                <h1>Parabéns, ${pontuacao[0].nomeEquipe}!</h1>
+                <div class="subTituloParagrafo">
+                    <h4>Vocês vieram para vencer!</h2>
+                </div>
+            </div>
+            <img src="trophy.png" id="trofeu">
+            <div class="podio">
+                <div class="primeiro"></div>
+            </div>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        } else if (qtdEquipes == 2) {
+          style.textContent = `
+  .primeiro {
+    position: absolute;
+    background-color: #FF5E01;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw * 95 / 1440);
+    height: calc(100% - (100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+
+.segundo {
+    position: absolute;
+    background-color: #883708;
+    left: 0;
+    bottom: 0;
+    width: calc(100vw * 95 / 1440);
+    height: calc(${
+      (pontuacao[1].pontuacao * 100) / pontuacao[0].pontuacao
+    }% - (100vh * 36 / 900));
+    transform: translateY(calc(-100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+    
+  .primeiro::after {
+    content: '${pontuacao[0].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.segundo::after {
+    content: '${pontuacao[1].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.primeiro::before {
+    content: '${pontuacao[0].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+
+.segundo::before {
+    content: '${pontuacao[1].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+`;
+          body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="premiacao">
+            <div class="alinharFinal">
+                <h1>Parabéns, ${pontuacao[0].nomeEquipe}!</h1>
+                <div class="subTituloParagrafo">
+                    <h4>Vocês vieram para vencer!</h2>
+                </div>
+            </div>
+            <img src="trophy.png" id="trofeu">
+            <div class="podio">
+                <div class="primeiro"></div>
+                <div class="segundo"></div>
+            </div>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        } else {
+          style.textContent = `
+  .primeiro {
+    position: absolute;
+    background-color: #FF5E01;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw * 95 / 1440);
+    height: calc(100% - (100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+
+.segundo {
+    position: absolute;
+    background-color: #883708;
+    left: 0;
+    bottom: 0;
+    width: calc(100vw * 95 / 1440);
+    height: calc(${
+      (pontuacao[1].pontuacao * 100) / pontuacao[0].pontuacao
+    }% - (100vh * 36 / 900));
+    transform: translateY(calc(-100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+
+.terceiro {
+    position: absolute;
+    background-color: #C54800;
+    right: 0;
+    bottom: 0;
+    width: calc(100vw * 95 / 1440);
+    height: calc(${
+      (pontuacao[2].pontuacao * 100) / pontuacao[0].pontuacao
+    }% - (100vh * 36 / 900));
+    transform: translateY(calc(-100vh * 36 / 900));
+    border-top-left-radius: calc(100vh * 10.5 / 900);
+    border-top-right-radius: calc(100vh * 10.5 / 900);
+}
+    
+  .primeiro::after {
+    content: '${pontuacao[0].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.segundo::after {
+    content: '${pontuacao[1].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.terceiro::after {
+    content: '${pontuacao[2].pontuacao}';
+    text-align: center;
+    font-size: calc(100vh * 42 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.primeiro::before {
+    content: '${pontuacao[0].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+
+.segundo::before {
+    content: '${pontuacao[1].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+
+.terceiro::before {
+    content: '${pontuacao[2].nomeEquipe}';
+    font-size: calc(100vh * 24 / 900);
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, calc(100% + (100vh * 8 / 900)));
+    white-space: nowrap;
+}
+`;
+          body.innerHTML = `<header>
+        <div class="icone" id="configuracaoTelaSete">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="gear" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+        </div>
+    </header>
+    <main>
+        <div class="premiacao">
+            <div class="alinharFinal">
+                <h1>Parabéns, ${pontuacao[0].nomeEquipe}!</h1>
+                <div class="subTituloParagrafo">
+                    <h4>Vocês vieram para vencer!</h2>
+                </div>
+            </div>
+            <img src="trophy.png" id="trofeu">
+            <div class="podio">
+                <div class="primeiro"></div>
+                <div class="segundo"></div>
+                <div class="terceiro"></div>
+            </div>
+        </div>
+    </main>
+    <div id="config" class="aparecerConfiguracao">
+        <h1>Configurações</h1>
+        <aside class="menuConfig">
+            <section class="opcoesConfig" id="botaoRecomecar">
+                <p class="opcaoConfigFrente">RECOMEÇAR</p>
+                <p class="opcaoConfigTras">RECOMEÇAR</p>
+            </section>
+            <section class="opcoesConfig" id="botaoNovoJogo">
+                <p class="opcaoConfigFrente">NOVO JOGO</p>
+                <p class="opcaoConfigTras">NOVO JOGO</p>
+            </section>
+            <section class="opcoesConfig" id="botaoSair">
+                <p class="opcaoConfigFrente">SAIR</p>
+                <p class="opcaoConfigTras">SAIR</p>
+            </section>
+        </aside>
+    </div>`;
+        }
+        document.head.appendChild(style);
+        funcionarConfiguracao();
+        const configuracaoTelaSete = document.getElementById(
+          "configuracaoTelaSete"
+        );
+        const config = document.getElementById("config");
+        configuracaoTelaSete.addEventListener("click", function () {
+          config.classList.toggle("aparecerConfiguracao");
+        });
+      }
+    </script>
+  </body>
+</html>
