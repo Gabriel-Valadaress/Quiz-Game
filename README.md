@@ -22,3 +22,5 @@ A single-file HTML quiz game about Quality Management concepts, created as a fre
 
 ## Customization
 The questions and answers can be easily modified by editing the JavaScript array in the HTML file.
+
+![image](https://github.com/user-attachments/assets/eba04b47-abcd-493a-9880-63f13c85a8fa)
